@@ -1,0 +1,6 @@
+es:
+  host: localhost
+  port: 9200
+  cluster: superhero_match
+  index: superheros_index
+  type: superheros
