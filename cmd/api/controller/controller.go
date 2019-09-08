@@ -2,6 +2,8 @@ package controller
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/superhero-suggestions/internal/config"
+	"github.com/superhero-suggestions/internal/es"
 )
 
 // Controller contains definition of controller methods.
@@ -10,11 +12,19 @@ type Controller interface {
 }
 
 type controller struct {
+	ES *es.ES
 }
 
 // NewController returns new controller.
-func NewController() Controller {
-	return &controller{}
+func NewController(cfg *config.Config) (ctrl Controller, err error) {
+	e, err := es.NewES(cfg)
+	if err != nil {
+		return nil, err
+	}
+
+	return &controller{
+		ES:       e,
+	}, nil
 }
 
 // RegisterRoutes registers all the superhero_suggestions API routes.

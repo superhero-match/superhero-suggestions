@@ -16,7 +16,7 @@ func (ctl *controller) Suggest(c *gin.Context) {
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"status":      http.StatusInternalServerError,
-			"suggestions": []ctrl.Suggestion{},
+			"suggestions": []ctrl.Superhero{},
 		})
 
 		return
@@ -26,6 +26,6 @@ func (ctl *controller) Suggest(c *gin.Context) {
 
 	c.JSON(http.StatusOK, gin.H{
 		"status":      http.StatusOK,
-		"suggestions": []ctrl.Suggestion{},
+		"suggestions": []ctrl.Superhero{},
 	})
 }
