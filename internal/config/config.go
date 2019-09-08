@@ -11,11 +11,11 @@ type Config struct {
 
 // NewConfig returns the configuration.
 func NewConfig() (cnf *Config, e error) {
-	cfg := &Config{}
+	var cfg Config
 
 	if err := configor.Load(&cfg, "config.yml"); err != nil {
 		return nil, err
 	}
 
-	return cfg, nil
+	return &cfg, nil
 }

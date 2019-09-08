@@ -2,14 +2,23 @@ package main
 
 import (
 	"github.com/superhero-suggestions/cmd/api/controller"
+	"github.com/superhero-suggestions/internal/config"
 )
 
 func main() {
-	ctrl := controller.NewController()
+	cfg, err := config.NewConfig()
+	if err != nil {
+		panic(err)
+	}
+
+	ctrl, err := controller.NewController(cfg)
+	if err != nil {
+		panic(err)
+	}
 
 	r := ctrl.RegisterRoutes()
 
-	err := r.RunTLS(
+	err = r.RunTLS(
 		":4000",
 		"./cmd/api/certificate.pem",
 		"./cmd/api/key.pem",
