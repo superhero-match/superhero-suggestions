@@ -19,9 +19,9 @@ func main() {
 	r := ctrl.RegisterRoutes()
 
 	err = r.RunTLS(
-		":4000",
-		"./cmd/api/certificate.pem",
-		"./cmd/api/key.pem",
+		cfg.App.Port,
+		cfg.App.CertFile,
+		cfg.App.KeyFile,
 	)
 	if err != nil {
 		panic(err)

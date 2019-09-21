@@ -1,6 +1,11 @@
+app:
+  port: ':4000'
+  cert_file: './cmd/api/certificate.pem'
+  key_file: './cmd/api/key.pem'
+  time_format: '2019-09-15T14:04:05'
+
 es:
   host: '192.168.178.26'
   port: '9200'
   cluster: superheromatch
-  index: superheros
-  type: superhero
+  index: superhero

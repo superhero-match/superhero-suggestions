@@ -4,12 +4,17 @@ import (
 	"fmt"
 
 	"github.com/superhero-suggestions/internal/config"
+
 	elastic "gopkg.in/olivere/elastic.v7"
 )
 
 // ES holds all the Elasticsearch client relevant data.
 type ES struct {
-	ES *elastic.Client
+	Client *elastic.Client
+	Host    string
+	Port    string
+	Cluster string
+	Index   string
 }
 
 // NewES creates a client and connects to it.
@@ -28,6 +33,10 @@ func NewES(cfg *config.Config) (es *ES, err error) {
 	}
 
 	return &ES{
-		ES: client,
+		Client: client,
+		Host:    cfg.ES.Host,
+		Port:    cfg.ES.Port,
+		Cluster: cfg.ES.Cluster,
+		Index:   cfg.ES.Index,
 	}, nil
 }
