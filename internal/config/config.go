@@ -6,7 +6,8 @@ import (
 
 // Config holds the configuration.
 type Config struct {
-	ES       *ES
+	App *App
+	ES  *ES
 }
 
 // NewConfig returns the configuration.
