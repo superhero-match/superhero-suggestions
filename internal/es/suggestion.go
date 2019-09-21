@@ -64,6 +64,8 @@ func (es *ES) GetSuggestions(req *model.Request) (shs []*model.Superhero, err er
 		return nil, err
 	}
 
+	fmt.Println()
+
 	fmt.Printf("%+v", searchResult)
 
 	fmt.Println()
