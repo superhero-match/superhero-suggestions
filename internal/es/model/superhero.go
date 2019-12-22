@@ -9,6 +9,7 @@ type Superhero struct {
 	Name                  string           `json:"name"`
 	SuperheroName         string           `json:"superhero_name"`
 	MainProfilePicURL     string           `json:"main_profile_pic_url"`
+	ProfilePictures       []ProfilePicture `json:"profile_pictures"`
 	Gender                int              `json:"gender"`
 	LookingForGender      int              `json:"looking_for_gender"`
 	Age                   int              `json:"age"`
@@ -22,10 +23,4 @@ type Superhero struct {
 	City                  string           `json:"city"`
 	SuperPower            string           `json:"superpower"`
 	AccountType           string           `json:"account_type"`
-	IsDeleted             bool             `json:"is_deleted"`
-	DeletedAt             string           `json:"deleted_at"`
-	IsBlocked             bool             `json:"is_blocked"`
-	BlockedAt             string           `json:"blocked_at"`
-	UpdatedAt             string           `json:"updated_at"`
-	CreatedAt             string           `json:"created_at"`
 }

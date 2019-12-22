@@ -17,7 +17,7 @@ type ES struct {
 	Index   string
 }
 
-// NewES creates a client and connects to it.
+// NewES creates a client connection to Elasticsearch.
 func NewES(cfg *config.Config) (es *ES, err error) {
 	client, err := elastic.NewClient(
 		elastic.SetURL(

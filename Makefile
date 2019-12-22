@@ -5,6 +5,7 @@ prepare:
 	go get -u github.com/jinzhu/configor
 	go get -u go.uber.org/zap
 	go get -u gopkg.in/olivere/elastic.v7
+	go get -u github.com/go-redis/redis/v7
 
 run:
 	go build -o bin/main cmd/api/main.go
