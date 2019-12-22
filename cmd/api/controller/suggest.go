@@ -15,7 +15,14 @@ func (ctl *controller) Suggest(c *gin.Context) {
 	var req ctrl.Request
 	var result []ctrl.Superhero
 
+	//body := c.Request.Body
+	//x, _ := ioutil.ReadAll(body)
+	//
+	//fmt.Printf("%s \n", string(x))
+
+
 	err := c.BindJSON(&req)
+	fmt.Println(err)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"status":      http.StatusInternalServerError,
@@ -66,10 +73,6 @@ func (ctl *controller) Suggest(c *gin.Context) {
 			CreatedAt:         s.CreatedAt,
 		})
 	}
-
-	fmt.Println()
-	fmt.Printf("superheros: %+v", result)
-	fmt.Println()
 
 	c.JSON(http.StatusOK, gin.H{
 		"status":      http.StatusOK,

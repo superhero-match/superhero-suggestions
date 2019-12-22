@@ -5,7 +5,16 @@ app:
   time_format: '2019-09-15T14:04:05'
 
 es:
-  host: '192.168.178.26'
+  host: '192.168.178.17'
   port: '9200'
   cluster: superheromatch
   index: superhero
+
+cache:
+  address: '192.168.178.17'
+  port: ':6379'
+  password: 'Awesome85**'
+  db: 0
+  pool_size: 25
+  minimum_idle_connections: 10
+  maximum_retries: 1

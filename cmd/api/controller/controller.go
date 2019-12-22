@@ -2,6 +2,8 @@ package controller
 
 import (
 	"github.com/gin-gonic/gin"
+
+	"github.com/superhero-suggestions/internal/cache"
 	"github.com/superhero-suggestions/internal/config"
 	"github.com/superhero-suggestions/internal/es"
 )
@@ -12,7 +14,8 @@ type Controller interface {
 }
 
 type controller struct {
-	ES *es.ES
+	ES    *es.ES
+	Cache *cache.Cache
 }
 
 // NewController returns new controller.
@@ -22,8 +25,14 @@ func NewController(cfg *config.Config) (ctrl Controller, err error) {
 		return nil, err
 	}
 
+	c, err := cache.NewCache(cfg)
+	if err != nil {
+		return nil, err
+	}
+
 	return &controller{
-		ES:       e,
+		ES:    e,
+		Cache: c,
 	}, nil
 }
 

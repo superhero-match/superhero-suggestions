@@ -8,6 +8,7 @@ import (
 type Config struct {
 	App *App
 	ES  *ES
+	Cache *Cache
 }
 
 // NewConfig returns the configuration.
