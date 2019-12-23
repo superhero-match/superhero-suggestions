@@ -6,4 +6,5 @@ type App struct {
 	CertFile   string `env:"APP_CERT_FILE" default:"./cmd/api/certificate.pem"`
 	KeyFile    string `env:"APP_KEY_FILE" default:"./cmd/api/key.pem"`
 	TimeFormat string `env:"APP_TIME_FORMAT" default:"2019-09-15T14:04:05"`
+	PageSize   int    `env:"APP_PAGE_SIZE" default:"10"`
 }

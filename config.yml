@@ -3,12 +3,14 @@ app:
   cert_file: './cmd/api/certificate.pem'
   key_file: './cmd/api/key.pem'
   time_format: '2019-09-15T14:04:05'
+  page_size: 10
 
 es:
   host: '192.168.178.17'
   port: '9200'
   cluster: superheromatch
   index: superhero
+  batch_size: 50
 
 cache:
   address: '192.168.178.17'

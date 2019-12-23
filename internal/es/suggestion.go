@@ -12,9 +12,7 @@ import (
 )
 
 // GetSuggestions fetches suggestions for the Superhero.
-func (es *ES) GetSuggestions(req *model.Request) (shs []*model.Superhero, err error) {
-	superheros := make([]*model.Superhero, 0)
-
+func (es *ES) GetSuggestions(req *model.Request) (superheros []model.Superhero, err error) {
 	suggestionsQuery := elastic.NewBoolQuery()
 	suggestionsQuery = suggestionsQuery.Must(elastic.NewMatchAllQuery())
 
@@ -29,6 +27,15 @@ func (es *ES) GetSuggestions(req *model.Request) (shs []*model.Superhero, err er
 
 	genderQuery := elastic.NewMatchQuery("gender", req.LookingForGender)
 	suggestionsQuery.Must(genderQuery)
+
+	if len(req.SuperheroIDs) > 0 {
+		excludeSuperherosQuery := elastic.NewMatchQuery(
+			"superhero_id",
+			req.SuperheroIDs,
+		)
+
+		suggestionsQuery.MustNot(excludeSuperherosQuery)
+	}
 
 	ageRangeQuery := elastic.NewBoolQuery().
 		Filter(
@@ -56,8 +63,7 @@ func (es *ES) GetSuggestions(req *model.Request) (shs []*model.Superhero, err er
 		Index(es.Index).
 		Query(suggestionsQuery).
 		Pretty(true).
-		From(req.Offset).
-		Size(req.Size).
+		Size(es.BatchSize).
 		Do(context.Background())
 	if err != nil {
 		fmt.Println(err)
@@ -82,7 +88,7 @@ func (es *ES) GetSuggestions(req *model.Request) (shs []*model.Superhero, err er
 
 		fmt.Printf("%+v", s)
 
-		superheros = append(superheros, &s)
+		superheros = append(superheros, s)
 	}
 
 	return superheros, nil
