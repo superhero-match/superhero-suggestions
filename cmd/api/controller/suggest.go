@@ -1,81 +1,77 @@
 package controller
 
 import (
-	"fmt"
 	"net/http"
-
-	ctrl "github.com/superhero-suggestions/cmd/api/model"
-	"github.com/superhero-suggestions/internal/es/model"
+	"time"
 
 	"github.com/gin-gonic/gin"
+	"go.uber.org/zap"
+
+	ctrl "github.com/superhero-suggestions/cmd/api/model"
 )
 
 // Suggest returns the suggestions for the Superhero.
-func (ctl *controller) Suggest(c *gin.Context) {
+func (ctl *Controller) Suggest(c *gin.Context) {
 	var req ctrl.Request
-	var result []ctrl.Superhero
-
-	//body := c.Request.Body
-	//x, _ := ioutil.ReadAll(body)
-	//
-	//fmt.Printf("%s \n", string(x))
-
 
 	err := c.BindJSON(&req)
-	fmt.Println(err)
-	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{
-			"status":      http.StatusInternalServerError,
-			"suggestions": []ctrl.Superhero{},
+	if checkError(err, c) {
+		ctl.Service.Logger.Error(
+			"failed to bind JSON to value of type Request",
+			zap.String("err", err.Error()),
+			zap.String("time", time.Now().UTC().Format(ctl.Service.TimeFormat)),
+		)
+
+		return
+	}
+
+	if req.IsESRequest {
+		result, esSuperheroIDs, err := ctl.Service.HandleESRequest(req)
+		if checkError(err, c) {
+			ctl.Service.Logger.Error(
+				"failed while executing service.HandleESRequest()",
+				zap.String("err", err.Error()),
+				zap.String("time", time.Now().UTC().Format(ctl.Service.TimeFormat)),
+			)
+
+			return
+		}
+
+		c.JSON(http.StatusOK, gin.H{
+			"status":       http.StatusOK,
+			"suggestions":  result,
+			"superheroIds": esSuperheroIDs,
 		})
 
 		return
 	}
 
-	superheros, err := ctl.ES.GetSuggestions(
-		&model.Request{
-			ID:               req.ID,
-			LookingForGender: req.LookingForGender,
-			Gender:           req.Gender,
-			LookingForAgeMin: req.LookingForAgeMin,
-			LookingForAgeMax: req.LookingForAgeMax,
-			MaxDistance:      req.MaxDistance,
-			DistanceUnit:     req.DistanceUnit,
-			Lat:              req.Lat,
-			Lon:              req.Lon,
-			Offset:           req.Offset,
-			Size:             req.Size,
-		},
-	)
-	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{
-			"status":      http.StatusInternalServerError,
-			"suggestions": []ctrl.Superhero{},
-		})
+	result, err := ctl.Service.GetCachedSuggestions(req)
+	if checkError(err, c) {
+		ctl.Service.Logger.Error(
+			"failed while executing service.GetCachedSuggestions()",
+			zap.String("err", err.Error()),
+			zap.String("time", time.Now().UTC().Format(ctl.Service.TimeFormat)),
+		)
 
 		return
-	}
-
-	for _, s := range superheros {
-		result = append(result, ctrl.Superhero{
-			ID:                s.ID,
-			SuperheroName:     s.SuperheroName,
-			MainProfilePicURL: s.MainProfilePicURL,
-			Gender:            s.Gender,
-			Age:               s.Age,
-			Lat:               s.Location.Lat,
-			Lon:               s.Location.Lon,
-			Birthday:          s.Birthday,
-			Country:           s.Country,
-			City:              s.City,
-			SuperPower:        s.SuperPower,
-			AccountType:       s.AccountType,
-			CreatedAt:         s.CreatedAt,
-		})
 	}
 
 	c.JSON(http.StatusOK, gin.H{
 		"status":      http.StatusOK,
 		"suggestions": result,
 	})
+}
+
+func checkError(err error, c *gin.Context) bool {
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"status":      http.StatusInternalServerError,
+			"suggestions": make([]ctrl.Superhero, 0),
+		})
+
+		return true
+	}
+
+	return false
 }

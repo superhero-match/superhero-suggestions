@@ -3,41 +3,29 @@ package controller
 import (
 	"github.com/gin-gonic/gin"
 
-	"github.com/superhero-suggestions/internal/cache"
+	"github.com/superhero-suggestions/cmd/api/controller/service"
 	"github.com/superhero-suggestions/internal/config"
-	"github.com/superhero-suggestions/internal/es"
 )
 
-// Controller contains definition of controller methods.
-type Controller interface {
-	RegisterRoutes() *gin.Engine
-}
-
-type controller struct {
-	ES    *es.ES
-	Cache *cache.Cache
+// Controller holds the Controller data.
+type Controller struct {
+	Service *service.Service
 }
 
 // NewController returns new controller.
-func NewController(cfg *config.Config) (ctrl Controller, err error) {
-	e, err := es.NewES(cfg)
+func NewController(cfg *config.Config) (*Controller, error) {
+	srv, err := service.NewService(cfg)
 	if err != nil {
 		return nil, err
 	}
 
-	c, err := cache.NewCache(cfg)
-	if err != nil {
-		return nil, err
-	}
-
-	return &controller{
-		ES:    e,
-		Cache: c,
+	return &Controller{
+		Service: srv,
 	}, nil
 }
 
 // RegisterRoutes registers all the superhero_suggestions API routes.
-func (ctl *controller) RegisterRoutes() *gin.Engine {
+func (ctl *Controller) RegisterRoutes() *gin.Engine {
 	router := gin.Default()
 
 	sr := router.Group("/api/v1/superhero_suggestions")
