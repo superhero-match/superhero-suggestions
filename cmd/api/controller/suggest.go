@@ -58,16 +58,18 @@ func (ctl *Controller) Suggest(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, gin.H{
-		"status":      http.StatusOK,
-		"suggestions": result,
+		"status":       http.StatusOK,
+		"suggestions":  result,
+		"superheroIds": make([]string, 0),
 	})
 }
 
 func checkError(err error, c *gin.Context) bool {
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{
-			"status":      http.StatusInternalServerError,
-			"suggestions": make([]ctrl.Superhero, 0),
+			"status":       http.StatusInternalServerError,
+			"suggestions":  make([]ctrl.Superhero, 0),
+			"superheroIds": make([]string, 0),
 		})
 
 		return true

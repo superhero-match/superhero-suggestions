@@ -3,15 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="81a9836d-c4fb-4988-b45f-3395bd09ef6c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/api/controller/controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/controller/controller.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/api/controller/service/api.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/controller/service/api.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/api/controller/service/cache.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/controller/service/cache.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/api/controller/service/es.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/controller/service/es.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/api/controller/service/mapper/api.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/controller/service/mapper/api.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/api/controller/suggest.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/controller/suggest.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/api/model/request.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/model/request.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/config/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/config/app.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/config/es.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/config/es.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/es/es.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/es/es.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/cache/get.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/cache/get.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/cache/model/profile_picture.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/cache/model/profile_picture.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/cache/model/suggestion.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/cache/model/suggestion.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/cache/set.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/cache/set.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/es/model/request.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/es/model/request.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/es/model/superhero.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/es/model/superhero.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/es/suggestion.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/es/suggestion.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />

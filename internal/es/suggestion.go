@@ -4,11 +4,9 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"strconv"
-
 	"github.com/superhero-suggestions/internal/es/model"
-
 	"gopkg.in/olivere/elastic.v7"
+	"strconv"
 )
 
 // GetSuggestions fetches suggestions for the Superhero.
@@ -28,10 +26,15 @@ func (es *ES) GetSuggestions(req *model.Request) (superheros []model.Superhero, 
 	genderQuery := elastic.NewMatchQuery("gender", req.LookingForGender)
 	suggestionsQuery.Must(genderQuery)
 
-	if len(req.SuperheroIDs) > 0 {
-		excludeSuperherosQuery := elastic.NewMatchQuery(
+	if len(req.RetrievedSuperheroIDs) > 0 {
+		idsToBeExcluded := make([]interface{}, len(req.RetrievedSuperheroIDs))
+		for index, value := range req.RetrievedSuperheroIDs {
+			idsToBeExcluded[index] = value
+		}
+
+		excludeSuperherosQuery := elastic.NewTermsQuery(
 			"superhero_id",
-			req.SuperheroIDs,
+			idsToBeExcluded...,
 		)
 
 		suggestionsQuery.MustNot(excludeSuperherosQuery)
@@ -76,6 +79,7 @@ func (es *ES) GetSuggestions(req *model.Request) (superheros []model.Superhero, 
 
 	fmt.Println()
 
+	fmt.Println("searchResult.TotalHits()")
 	fmt.Println(searchResult.TotalHits())
 
 	for _, hit := range searchResult.Hits.Hits {

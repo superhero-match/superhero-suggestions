@@ -1,15 +1,13 @@
 package service
 
 import (
-	"strings"
-
 	"github.com/superhero-suggestions/cmd/api/controller/service/mapper"
 	"github.com/superhero-suggestions/cmd/api/model"
 )
 
 // GetCachedSuggestions fetches suggestions from cache and maps them into result.
 func (srv *Service) GetCachedSuggestions(req model.Request) (result []model.Superhero, err error) {
-	cachedSuggestions, err := srv.Cache.GetSuggestions(strings.Join(req.SuperheroIDs, ","))
+	cachedSuggestions, err := srv.Cache.GetSuggestions(req.SuperheroIDs)
 	if err != nil {
 		return nil, err
 	}
