@@ -23,5 +23,16 @@ func (srv *Service) HandleESRequest(req ctrl.Request) (suggestions []ctrl.Superh
 	// Return max 10 suggestions.
 	suggestions = mapper.CutTotalResultToPageSize(srv.PageSize, result)
 
+	// Remove first 10 Superhero ids as these suggestions already being returned with the first batch.
+	esSuperheroIDs = mapper.CutFirstPageIdsFromESSuperheroIDs(srv.PageSize,  esSuperheroIDs)
+
+	if suggestions == nil {
+		suggestions = make([]ctrl.Superhero, 0)
+	}
+
+	if esSuperheroIDs == nil {
+		esSuperheroIDs = make([]string, 0)
+	}
+
 	return suggestions, esSuperheroIDs, nil
 }

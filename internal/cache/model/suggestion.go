@@ -1,5 +1,7 @@
 package model
 
+import "encoding/json"
+
 // Superhero holds the user profile data returned as suggestion.
 type Superhero struct {
 	ID                string           `json:"id"`
@@ -16,4 +18,14 @@ type Superhero struct {
 	SuperPower        string           `json:"superpower"`
 	AccountType       string           `json:"accountType"`
 	CreatedAt         string           `json:"createdAt"`
+}
+
+// MarshalBinary ...
+func (s Superhero) MarshalBinary() ([]byte, error) {
+	return json.Marshal(s)
+}
+
+// UnmarshalBinary ...
+func (s *Superhero) UnmarshalBinary(data []byte) error {
+	return json.Unmarshal(data, &s)
 }
