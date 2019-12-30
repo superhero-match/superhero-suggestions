@@ -1,6 +1,7 @@
 package controller
 
 import (
+	"fmt"
 	"net/http"
 	"time"
 
@@ -37,6 +38,12 @@ func (ctl *Controller) Suggest(c *gin.Context) {
 			return
 		}
 
+		fmt.Println("HandleESRequest")
+		for _, r := range result {
+			fmt.Printf("%+v", r)
+			fmt.Println()
+		}
+
 		c.JSON(http.StatusOK, gin.H{
 			"status":       http.StatusOK,
 			"suggestions":  result,
@@ -56,6 +63,13 @@ func (ctl *Controller) Suggest(c *gin.Context) {
 
 		return
 	}
+
+	fmt.Println("GetCachedSuggestions")
+	for _, r := range result {
+		fmt.Printf("%+v", r)
+		fmt.Println()
+	}
+
 
 	c.JSON(http.StatusOK, gin.H{
 		"status":       http.StatusOK,

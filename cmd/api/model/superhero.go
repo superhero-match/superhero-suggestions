@@ -15,5 +15,6 @@ type Superhero struct {
 	City              string           `json:"city"`
 	SuperPower        string           `json:"superpower"`
 	AccountType       string           `json:"accountType"`
+	HasLikedMe        bool             `json:"hasLikedMe"`
 	CreatedAt         string           `json:"createdAt"`
 }

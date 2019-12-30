@@ -39,6 +39,36 @@ func MapCacheSuggestionsToResult(cachedSuggestions []cache.Superhero) (result []
 	return result
 }
 
+// MapCacheSuggestionToResult maps cache Superhero model to API model that is returned to the user.
+func MapCacheSuggestionToResult(s cache.Superhero) model.Superhero {
+	superhero := model.Superhero{
+		ID:                s.ID,
+		SuperheroName:     s.SuperheroName,
+		MainProfilePicURL: s.MainProfilePicURL,
+		Gender:            s.Gender,
+		Age:               s.Age,
+		Lat:               s.Lat,
+		Lon:               s.Lon,
+		Birthday:          s.Birthday,
+		Country:           s.Country,
+		City:              s.City,
+		SuperPower:        s.SuperPower,
+		AccountType:       s.AccountType,
+		CreatedAt:         s.CreatedAt,
+	}
+
+	for _, profilePicture := range s.ProfilePictures {
+		superhero.ProfilePictures = append(superhero.ProfilePictures, model.ProfilePicture{
+			ID:                profilePicture.ID,
+			SuperheroID:       profilePicture.SuperheroID,
+			ProfilePictureURL: profilePicture.ProfilePictureURL,
+			Position:          profilePicture.Position,
+		})
+	}
+
+	return superhero
+}
+
 // MapResultToCacheSuggestions maps API Superhero models to Cache Superhero models.
 func MapResultToCacheSuggestions(result []model.Superhero) (cacheSuggestions []cache.Superhero) {
 	for _, s := range result {
