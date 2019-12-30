@@ -1,8 +1,9 @@
 package service
 
 import (
-	"github.com/superhero-suggestions/cmd/api/controller/service/mapper"
+	"fmt"
 	ctrl "github.com/superhero-suggestions/cmd/api/model"
+	"github.com/superhero-suggestions/cmd/api/service/mapper"
 )
 
 // HandleESRequest fetches suggestions from Elasticsearch,
@@ -16,6 +17,9 @@ func (srv *Service) HandleESRequest(req ctrl.Request) (suggestions []ctrl.Superh
 	result, esSuperheroIDs := mapper.MapESSuggestionsToResult(superheros)
 
 	err = srv.CacheSuggestions(result)
+	fmt.Println("CacheSuggestions err: ")
+	fmt.Println(err)
+
 	if err != nil {
 		return nil, nil, err
 	}
@@ -32,6 +36,33 @@ func (srv *Service) HandleESRequest(req ctrl.Request) (suggestions []ctrl.Superh
 
 	if esSuperheroIDs == nil {
 		esSuperheroIDs = make([]string, 0)
+	}
+
+	if len(suggestions) > 0 {
+		keys := make([]string, 0)
+
+		for _, res := range suggestions {
+			keys = append(keys, fmt.Sprintf("%s.%s", res.ID, req.ID))
+		}
+
+		choices, err := srv.GetCachedChoices(keys)
+		fmt.Println("GetCachedChoices err: ")
+		fmt.Println(err)
+
+		if err != nil {
+			return nil, nil, err
+		}
+
+		for i := 0; i < len(suggestions); i++ {
+			_, ok := choices[suggestions[i].ID]
+			if !ok {
+				suggestions[i].HasLikedMe = false
+
+				continue
+			}
+
+			suggestions[i].HasLikedMe = true
+		}
 	}
 
 	return suggestions, esSuperheroIDs, nil

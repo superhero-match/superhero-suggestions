@@ -3,7 +3,7 @@ package controller
 import (
 	"github.com/gin-gonic/gin"
 
-	"github.com/superhero-suggestions/cmd/api/controller/service"
+	"github.com/superhero-suggestions/cmd/api/service"
 	"github.com/superhero-suggestions/internal/config"
 )
 
@@ -35,6 +35,7 @@ func (ctl *Controller) RegisterRoutes() *gin.Engine {
 
 	// Routes.
 	sr.POST("/suggest", ctl.Suggest)
+	sr.POST("/profile", ctl.Profile)
 
 	return router
 }

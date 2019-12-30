@@ -1,6 +1,7 @@
 package cache
 
 import (
+	"github.com/go-redis/redis"
 	"github.com/superhero-suggestions/internal/cache/model"
 )
 
@@ -8,8 +9,12 @@ import (
 func (c *Cache) GetSuggestions(keys []string) (suggestions []model.Superhero, err error) {
 	for _, key := range keys {
 		res, err := c.Redis.Get(key).Result()
-		if err != nil {
+		if err != nil && err != redis.Nil {
 			return nil, err
+		}
+
+		if len(res) == 0 {
+			continue
 		}
 
 		var suggestion model.Superhero
