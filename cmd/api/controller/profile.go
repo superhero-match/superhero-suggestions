@@ -1,6 +1,7 @@
 package controller
 
 import (
+	"fmt"
 	"net/http"
 	"time"
 
@@ -25,7 +26,7 @@ func (ctl *Controller) Profile(c *gin.Context) {
 		return
 	}
 
-	suggestion, err := ctl.Service.GetCachedSuggestion(req.SuperheroID)
+	suggestion, err := ctl.Service.GetCachedSuggestion(fmt.Sprintf("suggestion.%s", req.SuperheroID))
 	if checkProfileRequestError(err, c) {
 		ctl.Service.Logger.Error(
 			"failed to bind JSON to value of type ProfileRequest",
