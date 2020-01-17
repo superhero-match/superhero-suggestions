@@ -3,16 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="81a9836d-c4fb-4988-b45f-3395bd09ef6c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/api/controller/profile.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/controller/profile.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/api/controller/suggest.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/controller/suggest.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/api/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/api/service/api.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/service/api.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/api/service/cache.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/service/cache.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/cache/get_choice.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/cache/get_choice.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/cache/get_choices.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/cache/get_choices.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/cache/cache.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/cache/cache.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/cache/get_suggestions.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/cache/get_suggestions.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/cache/set_suggestions.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/cache/set_suggestions.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/config/cache.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/config/cache.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

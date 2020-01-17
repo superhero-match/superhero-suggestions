@@ -26,7 +26,9 @@ func (ctl *Controller) Profile(c *gin.Context) {
 		return
 	}
 
-	suggestion, err := ctl.Service.GetCachedSuggestion(fmt.Sprintf("suggestion.%s", req.SuperheroID))
+	suggestion, err := ctl.Service.GetCachedSuggestion(
+		fmt.Sprintf(ctl.Service.Cache.SuggestionKeyFormat, req.SuperheroID),
+	)
 	if checkProfileRequestError(err, c) {
 		ctl.Service.Logger.Error(
 			"failed to bind JSON to value of type ProfileRequest",
@@ -39,8 +41,8 @@ func (ctl *Controller) Profile(c *gin.Context) {
 
 	if suggestion != nil {
 		c.JSON(http.StatusOK, gin.H{
-			"status":       http.StatusOK,
-			"suggestion":  suggestion,
+			"status":     http.StatusOK,
+			"suggestion": suggestion,
 		})
 
 		return
@@ -58,8 +60,8 @@ func (ctl *Controller) Profile(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, gin.H{
-		"status":       http.StatusOK,
-		"suggestion":  suggestion,
+		"status":     http.StatusOK,
+		"suggestion": suggestion,
 	})
 }
 
@@ -67,8 +69,8 @@ func checkProfileRequestError(err error, c *gin.Context) bool {
 	if err != nil {
 		var suggestion ctrl.Superhero
 		c.JSON(http.StatusInternalServerError, gin.H{
-			"status":       http.StatusInternalServerError,
-			"suggestion":  suggestion,
+			"status":     http.StatusInternalServerError,
+			"suggestion": suggestion,
 		})
 
 		return true

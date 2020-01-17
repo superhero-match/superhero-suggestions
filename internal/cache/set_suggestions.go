@@ -2,6 +2,7 @@ package cache
 
 import (
 	"fmt"
+
 	"github.com/superhero-suggestions/internal/cache/model"
 )
 
@@ -9,7 +10,7 @@ import (
 func (c *Cache) SetSuggestions(suggestions []model.Superhero) error {
 	for _, suggestion := range suggestions {
 		err := c.Redis.Set(
-			fmt.Sprintf("suggestion.%s", suggestion.ID),
+			fmt.Sprintf(c.SuggestionKeyFormat, suggestion.ID),
 			suggestion,
 			0,
 		).Err()

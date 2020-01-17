@@ -2,6 +2,7 @@ package service
 
 import (
 	"fmt"
+
 	ctrl "github.com/superhero-suggestions/cmd/api/model"
 	"github.com/superhero-suggestions/cmd/api/service/mapper"
 )
@@ -42,7 +43,7 @@ func (srv *Service) HandleESRequest(req ctrl.Request) (suggestions []ctrl.Superh
 		keys := make([]string, 0)
 
 		for _, res := range suggestions {
-			keys = append(keys, fmt.Sprintf("choice.%s.%s", res.ID, req.ID))
+			keys = append(keys, fmt.Sprintf(srv.Cache.ChoiceKeyFormat, res.ID, req.ID))
 		}
 
 		choices, err := srv.GetCachedChoices(keys)
