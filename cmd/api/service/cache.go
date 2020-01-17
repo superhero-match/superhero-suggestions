@@ -18,7 +18,7 @@ func (srv *Service) GetCachedSuggestions(req model.Request) (result []model.Supe
 	keys := make([]string, 0)
 
 	for _, res := range result {
-		keys = append(keys, fmt.Sprintf("choice.%s.%s", res.ID, req.ID))
+		keys = append(keys, fmt.Sprintf(srv.Cache.ChoiceKeyFormat, res.ID, req.ID))
 	}
 
 	choices, err := srv.GetCachedChoices(keys)
@@ -49,7 +49,7 @@ func (srv *Service) GetCachedSuggestion(key string) (*model.Superhero, error) {
 
 	result := mapper.MapCacheSuggestionToResult(*cachedSuggestion)
 
-	choice, err := srv.GetCachedChoice(fmt.Sprintf("choice.%s.%s", result.ID, key))
+	choice, err := srv.GetCachedChoice(fmt.Sprintf(srv.Cache.ChoiceKeyFormat, result.ID, key))
 	if err != nil {
 		return nil, err
 	}

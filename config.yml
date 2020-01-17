@@ -20,3 +20,5 @@ cache:
   pool_size: 25
   minimum_idle_connections: 10
   maximum_retries: 1
+  suggestion_key_format: 'suggestion.%s'
+  choice_key_format: 'choice.%s.%s'
