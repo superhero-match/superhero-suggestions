@@ -17,7 +17,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/superhero-suggestions/internal/es/model"
+	"github.com/superhero-match/superhero-suggestions/internal/es/model"
 	"gopkg.in/olivere/elastic.v7"
 	"strconv"
 )

@@ -14,8 +14,8 @@
 package mapper
 
 import (
-	"github.com/superhero-suggestions/cmd/api/model"
-	cache "github.com/superhero-suggestions/internal/cache/model"
+	"github.com/superhero-match/superhero-suggestions/cmd/api/model"
+	cache "github.com/superhero-match/superhero-suggestions/internal/cache/model"
 )
 
 // MapCacheSuggestionsToResult maps cache Superhero models to API models that are returned to the user.

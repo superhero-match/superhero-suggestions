@@ -14,8 +14,8 @@
 package service
 
 import (
-	ctrl "github.com/superhero-suggestions/cmd/api/model"
-	"github.com/superhero-suggestions/internal/es/model"
+	ctrl "github.com/superhero-match/superhero-suggestions/cmd/api/model"
+	"github.com/superhero-match/superhero-suggestions/internal/es/model"
 )
 
 // GetESSuggestions fetches suggestions from Elasticsearch.

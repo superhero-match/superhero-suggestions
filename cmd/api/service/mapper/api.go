@@ -14,8 +14,8 @@
 package mapper
 
 import (
-	"github.com/superhero-suggestions/cmd/api/model"
-	es "github.com/superhero-suggestions/internal/es/model"
+	"github.com/superhero-match/superhero-suggestions/cmd/api/model"
+	es "github.com/superhero-match/superhero-suggestions/internal/es/model"
 )
 
 // CutTotalResultToPageSize takes only specified page size, default is 10, or less from total result set.

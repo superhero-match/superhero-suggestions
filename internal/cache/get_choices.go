@@ -15,7 +15,7 @@ package cache
 
 import (
 	"github.com/go-redis/redis"
-	"github.com/superhero-suggestions/internal/cache/model"
+	"github.com/superhero-match/superhero-suggestions/internal/cache/model"
 )
 
 // GetChoices fetches choices(likes, dislikes are only in DB) from cache.

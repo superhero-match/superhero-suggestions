@@ -16,7 +16,7 @@ package cache
 import (
 	"fmt"
 	"github.com/go-redis/redis"
-	"github.com/superhero-suggestions/internal/cache/model"
+	"github.com/superhero-match/superhero-suggestions/internal/cache/model"
 )
 
 // GetSuggestions fetches suggestions from cache.

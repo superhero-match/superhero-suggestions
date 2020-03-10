@@ -14,8 +14,8 @@
 package main
 
 import (
-	"github.com/superhero-suggestions/cmd/api/controller"
-	"github.com/superhero-suggestions/internal/config"
+	"github.com/superhero-match/superhero-suggestions/cmd/api/controller"
+	"github.com/superhero-match/superhero-suggestions/internal/config"
 )
 
 func main() {

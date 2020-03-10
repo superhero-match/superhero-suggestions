@@ -15,8 +15,8 @@ package service
 
 import (
 	"fmt"
-	"github.com/superhero-suggestions/cmd/api/model"
-	"github.com/superhero-suggestions/cmd/api/service/mapper"
+	"github.com/superhero-match/superhero-suggestions/cmd/api/model"
+	"github.com/superhero-match/superhero-suggestions/cmd/api/service/mapper"
 )
 
 // GetCachedSuggestions fetches suggestions from cache and maps them into result.
