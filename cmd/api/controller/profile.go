@@ -21,7 +21,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 
-	ctrl "github.com/superhero-suggestions/cmd/api/model"
+	ctrl "github.com/superhero-match/superhero-suggestions/cmd/api/model"
 )
 
 // Profile returns Superhero data with specified id.

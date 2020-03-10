@@ -16,7 +16,7 @@ package es
 import (
 	"fmt"
 
-	"github.com/superhero-suggestions/internal/config"
+	"github.com/superhero-match/superhero-suggestions/internal/config"
 
 	"gopkg.in/olivere/elastic.v7"
 )

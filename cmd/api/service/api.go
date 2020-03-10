@@ -16,8 +16,8 @@ package service
 import (
 	"fmt"
 
-	ctrl "github.com/superhero-suggestions/cmd/api/model"
-	"github.com/superhero-suggestions/cmd/api/service/mapper"
+	ctrl "github.com/superhero-match/superhero-suggestions/cmd/api/model"
+	"github.com/superhero-match/superhero-suggestions/cmd/api/service/mapper"
 )
 
 // HandleESRequest fetches suggestions from Elasticsearch,

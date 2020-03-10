@@ -16,9 +16,9 @@ package service
 import (
 	"go.uber.org/zap"
 
-	"github.com/superhero-suggestions/internal/cache"
-	"github.com/superhero-suggestions/internal/config"
-	"github.com/superhero-suggestions/internal/es"
+	"github.com/superhero-match/superhero-suggestions/internal/cache"
+	"github.com/superhero-match/superhero-suggestions/internal/config"
+	"github.com/superhero-match/superhero-suggestions/internal/es"
 )
 
 // Service holds all the different services that are used when handling request.

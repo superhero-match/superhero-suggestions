@@ -16,7 +16,7 @@ package cache
 import (
 	"fmt"
 
-	"github.com/superhero-suggestions/internal/cache/model"
+	"github.com/superhero-match/superhero-suggestions/internal/cache/model"
 )
 
 // SetSuggestions stores multiple suggestions into Redis cache.
