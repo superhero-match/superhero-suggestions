@@ -17,9 +17,15 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"github.com/olivere/elastic/v7"
 	"github.com/superhero-match/superhero-suggestions/internal/es/model"
-	"gopkg.in/olivere/elastic.v7"
 	"strconv"
+)
+
+const (
+	male = int(1)
+	female = int(2)
+	both = int(3)
 )
 
 // GetSuggestions fetches suggestions for the Superhero.
@@ -36,8 +42,18 @@ func (es *ES) GetSuggestions(req *model.Request) (superheros []model.Superhero, 
 
 	suggestionsQuery = suggestionsQuery.Filter(distanceQuery)
 
-	genderQuery := elastic.NewMatchQuery("gender", req.LookingForGender)
-	suggestionsQuery.Must(genderQuery)
+	if req.LookingForGender == both {
+		maleGenderQuery := elastic.NewMatchQuery("gender", male)
+		femaleGenderQuery := elastic.NewMatchQuery("gender", female)
+		userIDQuery := elastic.NewMatchQuery("superhero_id", req.ID)
+
+		suggestionsQuery.Should(maleGenderQuery)
+		suggestionsQuery.Should(femaleGenderQuery)
+		suggestionsQuery.MustNot(userIDQuery)
+	} else {
+		genderQuery := elastic.NewMatchQuery("gender", req.LookingForGender)
+		suggestionsQuery.Must(genderQuery)
+	}
 
 	if len(req.RetrievedSuperheroIDs) > 0 {
 		idsToBeExcluded := make([]interface{}, len(req.RetrievedSuperheroIDs))

@@ -20,7 +20,7 @@ import (
 
 	"github.com/superhero-match/superhero-suggestions/internal/es/model"
 
-	"gopkg.in/olivere/elastic.v7"
+	"github.com/olivere/elastic/v7"
 )
 
 // GetSuggestion retrieves single Superhero.
