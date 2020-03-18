@@ -13,7 +13,7 @@
 */
 package model
 
-import "gopkg.in/olivere/elastic.v7"
+import "github.com/olivere/elastic/v7"
 
 // Superhero holds the user profile data returned as suggestion.
 type Superhero struct {

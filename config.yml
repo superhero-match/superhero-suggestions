@@ -5,6 +5,7 @@ app:
   time_format: '2019-09-15T14:04:05'
   page_size: 10
 
+#192.168.0.105
 es:
   host: 'localhost'
   port: '9200'
@@ -13,7 +14,7 @@ es:
   batch_size: 50
 
 cache:
-  address: 'localhost'
+  address: '192.168.0.105'
   port: ':6379'
   password: 'Awesome85**'
   db: 0
