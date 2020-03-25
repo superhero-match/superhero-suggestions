@@ -48,7 +48,6 @@ func (ctl *Controller) RegisterRoutes() *gin.Engine {
 
 	// Routes.
 	sr.POST("/suggest", ctl.Suggest)
-	sr.POST("/profile", ctl.Profile)
 
 	return router
 }

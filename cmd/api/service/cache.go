@@ -53,32 +53,6 @@ func (srv *Service) GetCachedSuggestions(req model.Request) (result []model.Supe
 	return result, nil
 }
 
-// GetCachedSuggestion fetches suggestion from cache and maps it into result.
-func (srv *Service) GetCachedSuggestion(key string) (*model.Superhero, error) {
-	cachedSuggestion, err := srv.Cache.GetSuggestion(key)
-	if err != nil {
-		return nil, err
-	}
-
-	result := mapper.MapCacheSuggestionToResult(*cachedSuggestion)
-
-	choice, err := srv.GetCachedChoice(fmt.Sprintf(srv.Cache.ChoiceKeyFormat, result.ID, key))
-	if err != nil {
-		return nil, err
-	}
-
-	_, ok := choice[result.ID]
-	if !ok {
-		result.HasLikedMe = false
-
-		return &result, nil
-	}
-
-	result.HasLikedMe = true
-
-	return &result, nil
-}
-
 // CacheSuggestions maps ES models to Cache models and caches the suggestions.
 func (srv *Service) CacheSuggestions(result []model.Superhero) error {
 	return srv.Cache.SetSuggestions(mapper.MapResultToCacheSuggestions(result))

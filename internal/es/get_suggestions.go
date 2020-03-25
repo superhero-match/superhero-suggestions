@@ -42,14 +42,15 @@ func (es *ES) GetSuggestions(req *model.Request) (superheros []model.Superhero, 
 
 	suggestionsQuery = suggestionsQuery.Filter(distanceQuery)
 
+	userIDQuery := elastic.NewMatchQuery("superhero_id", req.ID)
+	suggestionsQuery.MustNot(userIDQuery)
+
 	if req.LookingForGender == both {
 		maleGenderQuery := elastic.NewMatchQuery("gender", male)
 		femaleGenderQuery := elastic.NewMatchQuery("gender", female)
-		userIDQuery := elastic.NewMatchQuery("superhero_id", req.ID)
 
 		suggestionsQuery.Should(maleGenderQuery)
 		suggestionsQuery.Should(femaleGenderQuery)
-		suggestionsQuery.MustNot(userIDQuery)
 	} else {
 		genderQuery := elastic.NewMatchQuery("gender", req.LookingForGender)
 		suggestionsQuery.Must(genderQuery)
