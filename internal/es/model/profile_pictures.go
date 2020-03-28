@@ -17,6 +17,6 @@ package model
 type ProfilePicture struct {
 	ID                int64  `json:"id"`
 	SuperheroID       string `json:"superhero_id"`
-	ProfilePictureURL string `json:"profile_pic_url"`
+	ProfilePictureURL string `json:"url"`
 	Position          int    `json:"position"`
 }
