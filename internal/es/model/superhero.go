@@ -22,7 +22,7 @@ type Superhero struct {
 	Name                  string           `json:"name"`
 	SuperheroName         string           `json:"superhero_name"`
 	MainProfilePicURL     string           `json:"main_profile_pic_url"`
-	ProfilePictures       []ProfilePicture `json:"profile_pictures"`
+	ProfilePictures       []ProfilePicture `json:"profile_pics"`
 	Gender                int              `json:"gender"`
 	LookingForGender      int              `json:"looking_for_gender"`
 	Age                   int              `json:"age"`
