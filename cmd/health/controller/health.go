@@ -11,13 +11,14 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-package config
+package controller
 
-// App holds the configuration values for the application.
-type App struct {
-	Port       string `env:"APP_PORT" default:":4000"`
-	CertFile   string `env:"APP_CERT_FILE" default:"./cmd/api/certificate.pem"`
-	KeyFile    string `env:"APP_KEY_FILE" default:"./cmd/api/key.pem"`
-	TimeFormat string `env:"APP_TIME_FORMAT" default:"2006-01-02T15:04:05"`
-	PageSize   int    `env:"APP_PAGE_SIZE" default:"10"`
+import (
+	"github.com/gin-gonic/gin"
+	"net/http"
+)
+
+// Health is used for health checks from loadbalancer.
+func (ctl *Controller) Health(c *gin.Context) {
+	c.Status(http.StatusOK)
 }

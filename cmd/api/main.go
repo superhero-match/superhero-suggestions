@@ -16,6 +16,7 @@ package main
 import (
 	"github.com/superhero-match/superhero-suggestions/cmd/api/controller"
 	"github.com/superhero-match/superhero-suggestions/internal/config"
+	"github.com/superhero-match/superhero-suggestions/internal/health"
 )
 
 func main() {
@@ -24,8 +25,12 @@ func main() {
 		panic(err)
 	}
 
+	client := health.NewClient(cfg)
+
 	ctrl, err := controller.NewController(cfg)
 	if err != nil {
+		_ = client.ShutdownHealthServer()
+
 		panic(err)
 	}
 
@@ -37,6 +42,10 @@ func main() {
 		cfg.App.KeyFile,
 	)
 	if err != nil {
+		_ = client.ShutdownHealthServer()
+
 		panic(err)
 	}
+
+	_ = client.ShutdownHealthServer()
 }

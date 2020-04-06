@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="81a9836d-c4fb-4988-b45f-3395bd09ef6c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/ACER.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/ACER.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/es/model/profile_pictures.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/es/model/profile_pictures.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/es/model/superhero.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/es/model/superhero.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/api/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/config/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/config/app.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/config/config.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,13 +59,22 @@
       <recent name="C:\Users\ACER\go\src\github.com\superhero-suggestions" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build github.com/superhero-match/superhero-suggestions/cmd/api">
+  <component name="RunManager" selected="Makefile.dkb">
     <configuration name="go build github.com/superhero-match/superhero-suggestions/cmd/api" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="superhero-suggestions" />
       <working_directory value="$PROJECT_DIR$/" />
       <kind value="PACKAGE" />
       <filePath value="$PROJECT_DIR$/cmd/api/main.go" />
       <package value="github.com/superhero-match/superhero-suggestions/cmd/api" />
+      <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build github.com/superhero-match/superhero-suggestions/cmd/health" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="superhero-suggestions" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/cmd/health/main.go" />
+      <package value="github.com/superhero-match/superhero-suggestions/cmd/health" />
       <directory value="$PROJECT_DIR$/" />
       <method v="2" />
     </configuration>
@@ -73,8 +87,16 @@
       <directory value="$PROJECT_DIR$/" />
       <method v="2" />
     </configuration>
+    <configuration name="dkb" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="dkb" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Makefile.dkb" />
+        <item itemvalue="Go Build.go build github.com/superhero-match/superhero-suggestions/cmd/health" />
         <item itemvalue="Go Build.go build github.com/superhero-match/superhero-suggestions/cmd/api" />
         <item itemvalue="Go Build.go build github.com/superhero-suggestions/cmd/api" />
       </list>
@@ -105,22 +127,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1583858549424" />
-    <state width="1323" height="324" key="GridCell.Tab.0.bottom" timestamp="1585380468477">
+    <state width="1323" height="324" key="GridCell.Tab.0.bottom" timestamp="1586177935375">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="324" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1585380468477" />
-    <state width="1323" height="324" key="GridCell.Tab.0.center" timestamp="1585380468476">
+    <state width="1323" height="324" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586177935375" />
+    <state width="1323" height="324" key="GridCell.Tab.0.center" timestamp="1586177935375">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="324" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1585380468476" />
-    <state width="1323" height="324" key="GridCell.Tab.0.left" timestamp="1585380468475">
+    <state width="1323" height="324" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1586177935375" />
+    <state width="1323" height="324" key="GridCell.Tab.0.left" timestamp="1586177935374">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="324" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1585380468475" />
-    <state width="1323" height="324" key="GridCell.Tab.0.right" timestamp="1585380468476">
+    <state width="1323" height="324" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1586177935374" />
+    <state width="1323" height="324" key="GridCell.Tab.0.right" timestamp="1586177935375">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="324" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1585380468476" />
+    <state width="1323" height="324" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1586177935375" />
   </component>
   <component name="masterDetails">
     <states>

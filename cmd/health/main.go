@@ -11,13 +11,28 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-package config
+package main
 
-// App holds the configuration values for the application.
-type App struct {
-	Port       string `env:"APP_PORT" default:":4000"`
-	CertFile   string `env:"APP_CERT_FILE" default:"./cmd/api/certificate.pem"`
-	KeyFile    string `env:"APP_KEY_FILE" default:"./cmd/api/key.pem"`
-	TimeFormat string `env:"APP_TIME_FORMAT" default:"2006-01-02T15:04:05"`
-	PageSize   int    `env:"APP_PAGE_SIZE" default:"10"`
+import (
+	"github.com/superhero-match/superhero-suggestions/cmd/health/controller"
+	"github.com/superhero-match/superhero-suggestions/internal/config"
+)
+
+func main() {
+	cfg, err := config.NewConfig()
+	if err != nil {
+		panic(err)
+	}
+
+	ctrl, err := controller.NewController()
+	if err != nil {
+		panic(err)
+	}
+
+	r := ctrl.RegisterRoutes()
+
+	err = r.Run(cfg.Health.Port)
+	if err != nil {
+		panic(err)
+	}
 }
