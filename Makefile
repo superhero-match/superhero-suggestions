@@ -1,11 +1,5 @@
 prepare:
-	go get -u github.com/golang/dep/cmd/dep
-	go get -u github.com/gin-gonic/gin
-	go get -u golang.org/x/sys/unix
-	go get -u github.com/jinzhu/configor
-	go get -u go.uber.org/zap
-	go get -u gopkg.in/olivere/elastic.v7
-	go get -u github.com/go-redis/redis/v7
+	go mod download
 
 run:
 	go build -o bin/main cmd/api/main.go
@@ -14,9 +8,6 @@ run:
 build:
 	CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -ldflags '-extldflags "-static"' -o bin/main cmd/api/main.go
 	chmod +x bin/main
-
-deps:
-	dep ensure -v
 
 dkb:
 	docker build -t superhero-suggestions .

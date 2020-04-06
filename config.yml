@@ -2,7 +2,7 @@ app:
   port: ':4000'
   cert_file: './cmd/api/certificate.pem'
   key_file: './cmd/api/key.pem'
-  time_format: '2019-09-15T14:04:05'
+  time_format: '2006-01-02T15:04:05'
   page_size: 10
 
 #192.168.0.105
@@ -23,3 +23,9 @@ cache:
   maximum_retries: 1
   suggestion_key_format: 'suggestion.%s'
   choice_key_format: 'choice.%s.%s'
+
+health:
+  address: '192.168.0.101'
+  port: ':4080'
+  shutdown_endpoint: '/api/v1/superhero_suggestions_health/shutdown'
+  content_type: 'application/json'
