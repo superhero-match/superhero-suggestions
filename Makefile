@@ -13,7 +13,7 @@ dkb:
 	docker build -t superhero-suggestions .
 
 dkr:
-	docker run --rm -p "4000:4000" superhero-suggestions
+	docker run -p "4000:4000" -p "4080:4080" superhero-suggestions
 
 launch: dkb dkr
 

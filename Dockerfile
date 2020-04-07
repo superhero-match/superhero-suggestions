@@ -45,6 +45,9 @@ COPY --from=builder /build/cmd/api/main /app/
 # Copy the pre-built binary file from the previous stage.
 COPY --from=builder /build/cmd/health/health /app/
 
+# Copy the config file from the previous stage.
+COPY ./config.yml /app/
+
 # Set working directory in current stage.
 WORKDIR /app
 
@@ -58,4 +61,4 @@ EXPOSE 4000 4000
 EXPOSE 4080 4080
 
 # Command to run the executables.
-CMD ["./main && ./health"]
+CMD ["sh", "-c", "( ./health & ) && ./main"]
