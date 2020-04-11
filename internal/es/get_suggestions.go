@@ -18,8 +18,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/olivere/elastic/v7"
-	"github.com/superhero-match/superhero-suggestions/internal/cache"
-	"github.com/superhero-match/superhero-suggestions/internal/config"
 	"github.com/superhero-match/superhero-suggestions/internal/es/model"
 	"strconv"
 )
@@ -31,7 +29,7 @@ const (
 )
 
 // GetSuggestions fetches suggestions for the Superhero.
-func (es *ES) GetSuggestions(req *model.Request) (superheros []model.Superhero, err error) {
+func (es *ES) GetSuggestions(req *model.Request, likeSuperheroIDs []string) (superheros []model.Superhero, err error) {
 	suggestionsQuery := elastic.NewBoolQuery()
 	suggestionsQuery = suggestionsQuery.Must(elastic.NewMatchAllQuery())
 
@@ -58,22 +56,6 @@ func (es *ES) GetSuggestions(req *model.Request) (superheros []model.Superhero, 
 		suggestionsQuery.Must(genderQuery)
 	}
 
-	cfg, err := config.NewConfig()
-	if err != nil {
-		return nil, err
-	}
-
-	ch, err := cache.NewCache(cfg)
-	if err != nil {
-		return nil, err
-	}
-
-	// Fetch superheroes ids who liked this user.
-	likeSuperheroIDs, err := ch.GetLikes(req.ID)
-	if err != nil {
-		return nil, err
-	}
-
 	// Configure the query to include in result all users who liked this user.
 	// The goal behind this is to make users match as quick as possible.
 	// No need to be on the app for ages, just match as quick as possible and
@@ -90,13 +72,6 @@ func (es *ES) GetSuggestions(req *model.Request) (superheros []model.Superhero, 
 		)
 
 		suggestionsQuery.Must(includeSuperherosQuery)
-	}
-
-	// Delete the likes as they were already included in the Elasticsearch query.
-	// No need to be fetching the same users over and over again.
-	err = ch.DeleteLikes(req.ID)
-	if err != nil {
-		return nil, err
 	}
 
 	if len(req.RetrievedSuperheroIDs) > 0 {

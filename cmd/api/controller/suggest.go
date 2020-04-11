@@ -40,10 +40,32 @@ func (ctl *Controller) Suggest(c *gin.Context) {
 	}
 
 	if req.IsESRequest {
-		result, esSuperheroIDs, err := ctl.Service.HandleESRequest(req)
+		likeSuperheroIDs, err := ctl.Service.GetLikes(req.ID)
+		if checkError(err, c) {
+			ctl.Service.Logger.Error(
+				"failed while executing service.GetLikes()",
+				zap.String("err", err.Error()),
+				zap.String("time", time.Now().UTC().Format(ctl.Service.TimeFormat)),
+			)
+
+			return
+		}
+
+		result, esSuperheroIDs, err := ctl.Service.HandleESRequest(req, likeSuperheroIDs)
 		if checkError(err, c) {
 			ctl.Service.Logger.Error(
 				"failed while executing service.HandleESRequest()",
+				zap.String("err", err.Error()),
+				zap.String("time", time.Now().UTC().Format(ctl.Service.TimeFormat)),
+			)
+
+			return
+		}
+
+		err = ctl.Service.DeleteLikes(req.ID)
+		if checkError(err, c) {
+			ctl.Service.Logger.Error(
+				"failed while executing service.DeleteLikes()",
 				zap.String("err", err.Error()),
 				zap.String("time", time.Now().UTC().Format(ctl.Service.TimeFormat)),
 			)

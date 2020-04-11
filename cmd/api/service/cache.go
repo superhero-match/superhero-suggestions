@@ -87,3 +87,15 @@ func (srv *Service) GetCachedChoice(key string) (map[string]bool, error) {
 
 	return result, nil
 }
+
+// GetLikes fetches all the user ids of users who liked this user.
+func (srv *Service) GetLikes(superheroID string) ([]string, error) {
+	return srv.Cache.GetLikes(superheroID)
+}
+
+// DeleteLikes deletes all the user ids of users who liked this user after the results were fetched and processed.
+func (srv *Service) DeleteLikes(superheroID string) error {
+	// Delete the likes as they were already included in the Elasticsearch query.
+	// No need to be fetching the same users over and over again.
+	return srv.Cache.DeleteLikes(superheroID)
+}

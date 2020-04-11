@@ -22,8 +22,8 @@ import (
 
 // HandleESRequest fetches suggestions from Elasticsearch,
 // then caches them and returns page size of results.
-func (srv *Service) HandleESRequest(req ctrl.Request) (suggestions []ctrl.Superhero, esSuperheroIDs []string, err error) {
-	superheros, err := srv.GetESSuggestions(req)
+func (srv *Service) HandleESRequest(req ctrl.Request, likeSuperheroIDs []string) (suggestions []ctrl.Superhero, esSuperheroIDs []string, err error) {
+	superheros, err := srv.GetESSuggestions(req, likeSuperheroIDs)
 	if err != nil {
 		return nil, nil, err
 	}

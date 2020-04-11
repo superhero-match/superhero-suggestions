@@ -19,7 +19,7 @@ import (
 )
 
 // GetESSuggestions fetches suggestions from Elasticsearch.
-func (srv *Service) GetESSuggestions(req ctrl.Request) (superheros []model.Superhero, err error) {
+func (srv *Service) GetESSuggestions(req ctrl.Request, likeSuperheroIDs []string) (superheros []model.Superhero, err error) {
 	superheros, err = srv.ES.GetSuggestions(
 		&model.Request{
 			ID:                    req.ID,
@@ -33,6 +33,7 @@ func (srv *Service) GetESSuggestions(req ctrl.Request) (superheros []model.Super
 			Lon:                   req.Lon,
 			RetrievedSuperheroIDs: req.RetrievedSuperheroIDs,
 		},
+		likeSuperheroIDs,
 	)
 	if err != nil {
 		return nil, err
