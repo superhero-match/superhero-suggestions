@@ -26,6 +26,7 @@ type Cache struct {
 	Redis               *redis.Client
 	SuggestionKeyFormat string
 	ChoiceKeyFormat     string
+	LikesKeyFormat      string
 }
 
 // NewCache creates a client connection to Redis.
@@ -48,5 +49,6 @@ func NewCache(cfg *config.Config) (cache *Cache, err error) {
 		Redis:               client,
 		SuggestionKeyFormat: cfg.Cache.SuggestionKeyFormat,
 		ChoiceKeyFormat:     cfg.Cache.ChoiceKeyFormat,
+		LikesKeyFormat:      cfg.Cache.LikesKeyFormat,
 	}, nil
 }

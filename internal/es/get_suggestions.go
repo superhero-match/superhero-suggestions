@@ -18,14 +18,16 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/olivere/elastic/v7"
+	"github.com/superhero-match/superhero-suggestions/internal/cache"
+	"github.com/superhero-match/superhero-suggestions/internal/config"
 	"github.com/superhero-match/superhero-suggestions/internal/es/model"
 	"strconv"
 )
 
 const (
-	male = int(1)
+	male   = int(1)
 	female = int(2)
-	both = int(3)
+	both   = int(3)
 )
 
 // GetSuggestions fetches suggestions for the Superhero.
@@ -54,6 +56,47 @@ func (es *ES) GetSuggestions(req *model.Request) (superheros []model.Superhero, 
 	} else {
 		genderQuery := elastic.NewMatchQuery("gender", req.LookingForGender)
 		suggestionsQuery.Must(genderQuery)
+	}
+
+	cfg, err := config.NewConfig()
+	if err != nil {
+		return nil, err
+	}
+
+	ch, err := cache.NewCache(cfg)
+	if err != nil {
+		return nil, err
+	}
+
+	// Fetch superheroes ids who liked this user.
+	likeSuperheroIDs, err := ch.GetLikes(req.ID)
+	if err != nil {
+		return nil, err
+	}
+
+	// Configure the query to include in result all users who liked this user.
+	// The goal behind this is to make users match as quick as possible.
+	// No need to be on the app for ages, just match as quick as possible and
+	// go have fun.
+	if likeSuperheroIDs != nil && len(likeSuperheroIDs) > 0 {
+		idsToBeIncluded := make([]interface{}, len(likeSuperheroIDs))
+		for index, value := range likeSuperheroIDs {
+			idsToBeIncluded[index] = value
+		}
+
+		includeSuperherosQuery := elastic.NewTermsQuery(
+			"superhero_id",
+			idsToBeIncluded...,
+		)
+
+		suggestionsQuery.Must(includeSuperherosQuery)
+	}
+
+	// Delete the likes as they were already included in the Elasticsearch query.
+	// No need to be fetching the same users over and over again.
+	err = ch.DeleteLikes(req.ID)
+	if err != nil {
+		return nil, err
 	}
 
 	if len(req.RetrievedSuperheroIDs) > 0 {
