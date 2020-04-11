@@ -23,6 +23,7 @@ cache:
   maximum_retries: 1
   suggestion_key_format: 'suggestion.%s'
   choice_key_format: 'choice.%s.%s'
+  likes_key_format: 'likes.for.%s'
 
 health:
   address: '192.168.0.101'
