@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="81a9836d-c4fb-4988-b45f-3395bd09ef6c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/api/controller/suggest.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/controller/suggest.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/api/service/api.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/service/api.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/api/service/cache.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/service/cache.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/api/service/es.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/service/es.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/es/get_suggestions.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/es/get_suggestions.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +21,9 @@
   <component name="GOROOT" path="C:\Go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
   </component>
   <component name="ProjectId" id="1QYBwfm38pVGXKF5RCW5cCAz0xp" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -119,10 +119,10 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="363" y="91" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1586238036796">
+    <state x="363" y="91" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1587361539286">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="363" y="91" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1586238036796" />
+    <state x="363" y="91" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1587361539286" />
     <state x="397" y="0" key="#go_build_github.com/superhero-suggestions/cmd/api" timestamp="1584536850407">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -131,22 +131,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1583858549424" />
-    <state width="1323" height="324" key="GridCell.Tab.0.bottom" timestamp="1586618269995">
+    <state width="1323" height="324" key="GridCell.Tab.0.bottom" timestamp="1587725012884">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="324" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586618269995" />
-    <state width="1323" height="324" key="GridCell.Tab.0.center" timestamp="1586618269994">
+    <state width="1323" height="324" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1587725012884" />
+    <state width="1323" height="324" key="GridCell.Tab.0.center" timestamp="1587725012883">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="324" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1586618269994" />
-    <state width="1323" height="324" key="GridCell.Tab.0.left" timestamp="1586618269994">
+    <state width="1323" height="324" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1587725012883" />
+    <state width="1323" height="324" key="GridCell.Tab.0.left" timestamp="1587725012882">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="324" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1586618269994" />
-    <state width="1323" height="324" key="GridCell.Tab.0.right" timestamp="1586618269994">
+    <state width="1323" height="324" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1587725012882" />
+    <state width="1323" height="324" key="GridCell.Tab.0.right" timestamp="1587725012884">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="324" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1586618269994" />
+    <state width="1323" height="324" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1587725012884" />
   </component>
   <component name="masterDetails">
     <states>

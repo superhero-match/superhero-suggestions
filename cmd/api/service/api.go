@@ -15,9 +15,9 @@ package service
 
 import (
 	"fmt"
-
 	ctrl "github.com/superhero-match/superhero-suggestions/cmd/api/model"
 	"github.com/superhero-match/superhero-suggestions/cmd/api/service/mapper"
+	"sort"
 )
 
 // HandleESRequest fetches suggestions from Elasticsearch,
@@ -76,6 +76,14 @@ func (srv *Service) HandleESRequest(req ctrl.Request, likeSuperheroIDs []string)
 			}
 
 			suggestions[i].HasLikedMe = true
+		}
+	}
+
+	for l := 0; l < len(suggestions); l++ {
+		if len(suggestions[l].ProfilePictures) > 0 {
+			sort.Slice(suggestions[l].ProfilePictures, func(i, j int) bool {
+				return suggestions[l].ProfilePictures[i].Position < suggestions[l].ProfilePictures[j].Position
+			})
 		}
 	}
 

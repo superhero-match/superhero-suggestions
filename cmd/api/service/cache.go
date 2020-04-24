@@ -17,6 +17,7 @@ import (
 	"fmt"
 	"github.com/superhero-match/superhero-suggestions/cmd/api/model"
 	"github.com/superhero-match/superhero-suggestions/cmd/api/service/mapper"
+	"sort"
 )
 
 // GetCachedSuggestions fetches suggestions from cache and maps them into result.
@@ -48,6 +49,14 @@ func (srv *Service) GetCachedSuggestions(req model.Request) (result []model.Supe
 		}
 
 		result[i].HasLikedMe = true
+	}
+
+	for l := 0; l < len(result); l++ {
+		if len(result[l].ProfilePictures) > 0 {
+			sort.Slice(result[l].ProfilePictures, func(i, j int) bool {
+				return result[l].ProfilePictures[i].Position < result[l].ProfilePictures[j].Position
+			})
+		}
 	}
 
 	return result, nil
