@@ -49,8 +49,8 @@ COPY --from=builder /build/cmd/health/health /app/
 COPY ./config.yml /app/
 
 # Copy the certificates.
-COPY ./var/lib/jenkins/certificate.pem /app/cmd/api/
-COPY ./var/lib/jenkins/key.pem /app/cmd/api/
+COPY /var/lib/jenkins/certificate.pem /app/cmd/api/
+COPY /var/lib/jenkins/key.pem /app/cmd/api/
 
 # Set working directory in current stage.
 WORKDIR /app
