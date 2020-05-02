@@ -2,7 +2,7 @@
 Superhero Match is an open source dating app.
 
 ## superhero-suggestions
-This micro-service is responsible for providing suggestions to app users. 
+This micro-service is responsible for providing suggestions to users. 
 
 ## Becoming Contributor
 If you want to become contributor, please send email to this address - `superheromatch@gmail.com`.
