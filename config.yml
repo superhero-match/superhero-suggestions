@@ -5,16 +5,15 @@ app:
   time_format: '2006-01-02T15:04:05'
   page_size: 10
 
-#192.168.0.105
 es:
-  host: '192.168.0.105'
+  host: '192.168.0.64'
   port: '9200'
   cluster: superheromatch
   index: superhero
   batch_size: 50
 
 cache:
-  address: '192.168.0.105'
+  address: '192.168.0.64'
   port: ':6379'
   password: 'Awesome85**'
   db: 0

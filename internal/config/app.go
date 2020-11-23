@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2019 - 2020 MWSOFT
+  Copyright (C) 2019 - 2021 MWSOFT
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
@@ -15,9 +15,9 @@ package config
 
 // App holds the configuration values for the application.
 type App struct {
-	Port       string `env:"APP_PORT" default:":4000"`
-	CertFile   string `env:"APP_CERT_FILE" default:"./cmd/api/certificate.pem"`
-	KeyFile    string `env:"APP_KEY_FILE" default:"./cmd/api/key.pem"`
-	TimeFormat string `env:"APP_TIME_FORMAT" default:"2006-01-02T15:04:05"`
-	PageSize   int    `env:"APP_PAGE_SIZE" default:"10"`
+	Port       string `env:"SUPERHERO_SUGGESTIONS_APP_PORT" yaml:"port" default:":4000"`
+	CertFile   string `env:"SUPERHERO_SUGGESTIONS_APP_CERT_FILE" yaml:"cert_file" default:"./cmd/api/certificate.pem"`
+	KeyFile    string `env:"SUPERHERO_SUGGESTIONS_APP_KEY_FILE" yaml:"key_file" default:"./cmd/api/key.pem"`
+	TimeFormat string `env:"SUPERHERO_SUGGESTIONS_APP_TIME_FORMAT" yaml:"time_format" default:"2006-01-02T15:04:05"`
+	PageSize   int    `env:"SUPERHERO_SUGGESTIONS_APP_PAGE_SIZE" yaml:"page_size" default:"10"`
 }
