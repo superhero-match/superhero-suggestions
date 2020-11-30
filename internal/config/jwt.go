@@ -13,26 +13,7 @@
 */
 package config
 
-import (
-	"github.com/jinzhu/configor"
-)
-
-// Config holds the configuration.
-type Config struct {
-	App    *App
-	ES     *ES
-	Cache  *Cache
-	Health *Health
-	JWT    *JWT
-}
-
-// NewConfig returns the configuration.
-func NewConfig() (cnf *Config, e error) {
-	var cfg Config
-
-	if err := configor.Load(&cfg, "config.yml"); err != nil {
-		return nil, err
-	}
-
-	return &cfg, nil
+// JWT holds all the configuration settings for the JWT.
+type JWT struct {
+	AccessTokenSecret  string `env:"SUPERHERO_SUGGESTIONS_JWT_ACCESS_TOKEN_SECRET" yaml:"access_token_secret" default:"access_token_secret"`
 }

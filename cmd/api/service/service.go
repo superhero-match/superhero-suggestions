@@ -23,11 +23,12 @@ import (
 
 // Service holds all the different services that are used when handling request.
 type Service struct {
-	ES         *es.ES
-	Cache      *cache.Cache
-	PageSize   int
-	Logger     *zap.Logger
-	TimeFormat string
+	ES           *es.ES
+	Cache        *cache.Cache
+	PageSize     int
+	Logger       *zap.Logger
+	TimeFormat   string
+	AccessSecret string
 }
 
 // NewService creates value of type Service.
@@ -50,10 +51,11 @@ func NewService(cfg *config.Config) (*Service, error) {
 	defer logger.Sync()
 
 	return &Service{
-		ES:         e,
-		Cache:      c,
-		PageSize:   cfg.App.PageSize,
-		Logger:     logger,
-		TimeFormat: cfg.App.TimeFormat,
+		ES:           e,
+		Cache:        c,
+		PageSize:     cfg.App.PageSize,
+		Logger:       logger,
+		TimeFormat:   cfg.App.TimeFormat,
+		AccessSecret: cfg.JWT.AccessTokenSecret,
 	}, nil
 }
