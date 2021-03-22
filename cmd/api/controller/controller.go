@@ -44,7 +44,7 @@ func (ctl *Controller) RegisterRoutes() *gin.Engine {
 	sr := router.Group("/api/v1/superhero_suggestions")
 
 	// Routes.
-	sr.POST("/suggest", ctl.TokenAuthMiddleware(), ctl.Suggest)
+	sr.POST("/suggest", ctl.Suggest)
 
 	return router
 }
