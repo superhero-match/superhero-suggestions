@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2019 - 2021 MWSOFT
+  Copyright (C) 2019 - 2022 MWSOFT
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
@@ -14,25 +14,45 @@
 package service
 
 import (
-	"go.uber.org/zap"
+	"net/http"
 
+	jwt "github.com/dgrijalva/jwt-go"
+
+	ctrl "github.com/superhero-match/superhero-suggestions/cmd/api/model"
 	"github.com/superhero-match/superhero-suggestions/internal/cache"
+	cm "github.com/superhero-match/superhero-suggestions/internal/cache/model"
 	"github.com/superhero-match/superhero-suggestions/internal/config"
 	"github.com/superhero-match/superhero-suggestions/internal/es"
+	"github.com/superhero-match/superhero-suggestions/internal/es/model"
 )
 
-// Service holds all the different services that are used when handling request.
-type Service struct {
-	ES           *es.ES
-	Cache        *cache.Cache
-	PageSize     int
-	Logger       *zap.Logger
-	TimeFormat   string
-	AccessSecret string
+// Service interface defines service methods.
+type Service interface {
+	HandleESRequest(req ctrl.Request, likeSuperheroIDs []string) (suggestions []ctrl.Superhero, esSuperheroIDs []string, err error)
+	GetCachedSuggestions(req ctrl.Request) (result []ctrl.Superhero, err error)
+	CacheSuggestions(result []ctrl.Superhero) error
+	GetCachedChoices(keys []string) (map[string]bool, error)
+	GetCachedChoice(key string) (map[string]bool, error)
+	GetLikes(superheroID string) ([]string, error)
+	DeleteLikes(superheroID string) error
+	FetchAuth(authD *cm.AccessDetails) (string, error)
+	GetESSuggestions(req ctrl.Request, likeSuperheroIDs []string) (superheros []model.Superhero, err error)
+	ExtractToken(r *http.Request) string
+	VerifyToken(r *http.Request) (*jwt.Token, error)
+	ExtractTokenMetadata(r *http.Request) (*cm.AccessDetails, error)
+}
+
+// service holds all the different services that are used when handling request.
+type service struct {
+	ES              es.ES
+	Cache           cache.Cache
+	PageSize        int
+	AccessSecret    string
+	ChoiceKeyFormat string
 }
 
 // NewService creates value of type Service.
-func NewService(cfg *config.Config) (*Service, error) {
+func NewService(cfg *config.Config) (Service, error) {
 	e, err := es.NewES(cfg)
 	if err != nil {
 		return nil, err
@@ -43,19 +63,11 @@ func NewService(cfg *config.Config) (*Service, error) {
 		return nil, err
 	}
 
-	logger, err := zap.NewProduction()
-	if err != nil {
-		return nil, err
-	}
-
-	defer logger.Sync()
-
-	return &Service{
-		ES:           e,
-		Cache:        c,
-		PageSize:     cfg.App.PageSize,
-		Logger:       logger,
-		TimeFormat:   cfg.App.TimeFormat,
-		AccessSecret: cfg.JWT.AccessTokenSecret,
+	return &service{
+		ES:              e,
+		Cache:           c,
+		PageSize:        cfg.App.PageSize,
+		AccessSecret:    cfg.JWT.AccessTokenSecret,
+		ChoiceKeyFormat: cfg.Cache.ChoiceKeyFormat,
 	}, nil
 }

@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2019 - 2021 MWSOFT
+  Copyright (C) 2019 - 2022 MWSOFT
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
@@ -16,13 +16,19 @@ package es
 import (
 	"fmt"
 
-	"github.com/superhero-match/superhero-suggestions/internal/config"
+	elastic "github.com/olivere/elastic/v7"
 
-	"github.com/olivere/elastic/v7"
+	"github.com/superhero-match/superhero-suggestions/internal/config"
+	"github.com/superhero-match/superhero-suggestions/internal/es/model"
 )
 
-// ES holds all the Elasticsearch client relevant data.
-type ES struct {
+// ES interface defines es methods.
+type ES interface {
+	GetSuggestions(req *model.Request, likeSuperheroIDs []string) (superheros []model.Superhero, err error)
+}
+
+// es holds all the Elasticsearch client relevant data.
+type es struct {
 	Client    *elastic.Client
 	Host      string
 	Port      string
@@ -32,7 +38,7 @@ type ES struct {
 }
 
 // NewES creates a client connection to Elasticsearch.
-func NewES(cfg *config.Config) (es *ES, err error) {
+func NewES(cfg *config.Config) (e ES, err error) {
 	client, err := elastic.NewClient(
 		elastic.SetURL(
 			fmt.Sprintf(
@@ -46,7 +52,7 @@ func NewES(cfg *config.Config) (es *ES, err error) {
 		return nil, err
 	}
 
-	return &ES{
+	return &es{
 		Client:    client,
 		Host:      cfg.ES.Host,
 		Port:      cfg.ES.Port,

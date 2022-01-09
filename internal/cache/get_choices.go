@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2019 - 2021 MWSOFT
+  Copyright (C) 2019 - 2022 MWSOFT
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
@@ -15,11 +15,12 @@ package cache
 
 import (
 	"github.com/go-redis/redis"
+
 	"github.com/superhero-match/superhero-suggestions/internal/cache/model"
 )
 
 // GetChoices fetches choices(likes, dislikes are only in DB) from cache.
-func (c *Cache) GetChoices(keys []string) (choices []model.Choice, err error) {
+func (c *cache) GetChoices(keys []string) (choices []model.Choice, err error) {
 	for _, key := range keys {
 		res, err := c.Redis.Get(key).Result()
 		if err != nil && err != redis.Nil {

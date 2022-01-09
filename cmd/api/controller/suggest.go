@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2019 - 2021 MWSOFT
+  Copyright (C) 2019 - 2022 MWSOFT
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
@@ -30,10 +30,10 @@ func (ctl *Controller) Suggest(c *gin.Context) {
 
 	err := c.BindJSON(&req)
 	if checkError(err, c) {
-		ctl.Service.Logger.Error(
+		ctl.Logger.Error(
 			"failed to bind JSON to value of type Request",
 			zap.String("err", err.Error()),
-			zap.String("time", time.Now().UTC().Format(ctl.Service.TimeFormat)),
+			zap.String("time", time.Now().UTC().Format(ctl.TimeFormat)),
 		)
 
 		return
@@ -42,10 +42,10 @@ func (ctl *Controller) Suggest(c *gin.Context) {
 	if req.IsESRequest {
 		likeSuperheroIDs, err := ctl.Service.GetLikes(req.ID)
 		if checkError(err, c) {
-			ctl.Service.Logger.Error(
+			ctl.Logger.Error(
 				"failed while executing service.GetLikes()",
 				zap.String("err", err.Error()),
-				zap.String("time", time.Now().UTC().Format(ctl.Service.TimeFormat)),
+				zap.String("time", time.Now().UTC().Format(ctl.TimeFormat)),
 			)
 
 			return
@@ -53,10 +53,10 @@ func (ctl *Controller) Suggest(c *gin.Context) {
 
 		result, esSuperheroIDs, err := ctl.Service.HandleESRequest(req, likeSuperheroIDs)
 		if checkError(err, c) {
-			ctl.Service.Logger.Error(
+			ctl.Logger.Error(
 				"failed while executing service.HandleESRequest()",
 				zap.String("err", err.Error()),
-				zap.String("time", time.Now().UTC().Format(ctl.Service.TimeFormat)),
+				zap.String("time", time.Now().UTC().Format(ctl.TimeFormat)),
 			)
 
 			return
@@ -64,10 +64,10 @@ func (ctl *Controller) Suggest(c *gin.Context) {
 
 		err = ctl.Service.DeleteLikes(req.ID)
 		if checkError(err, c) {
-			ctl.Service.Logger.Error(
+			ctl.Logger.Error(
 				"failed while executing service.DeleteLikes()",
 				zap.String("err", err.Error()),
-				zap.String("time", time.Now().UTC().Format(ctl.Service.TimeFormat)),
+				zap.String("time", time.Now().UTC().Format(ctl.TimeFormat)),
 			)
 
 			return
@@ -84,10 +84,10 @@ func (ctl *Controller) Suggest(c *gin.Context) {
 
 	result, err := ctl.Service.GetCachedSuggestions(req)
 	if checkError(err, c) {
-		ctl.Service.Logger.Error(
+		ctl.Logger.Error(
 			"failed while executing service.GetCachedSuggestions()",
 			zap.String("err", err.Error()),
-			zap.String("time", time.Now().UTC().Format(ctl.Service.TimeFormat)),
+			zap.String("time", time.Now().UTC().Format(ctl.TimeFormat)),
 		)
 
 		return
@@ -98,7 +98,6 @@ func (ctl *Controller) Suggest(c *gin.Context) {
 		fmt.Printf("%+v", r)
 		fmt.Println()
 	}
-
 
 	c.JSON(http.StatusOK, gin.H{
 		"status":       http.StatusOK,

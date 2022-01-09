@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2019 - 2021 MWSOFT
+  Copyright (C) 2019 - 2022 MWSOFT
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
@@ -15,14 +15,15 @@ package service
 
 import (
 	"fmt"
+	"sort"
+
 	ctrl "github.com/superhero-match/superhero-suggestions/cmd/api/model"
 	"github.com/superhero-match/superhero-suggestions/cmd/api/service/mapper"
-	"sort"
 )
 
 // HandleESRequest fetches suggestions from Elasticsearch,
 // then caches them and returns page size of results.
-func (srv *Service) HandleESRequest(req ctrl.Request, likeSuperheroIDs []string) (suggestions []ctrl.Superhero, esSuperheroIDs []string, err error) {
+func (srv *service) HandleESRequest(req ctrl.Request, likeSuperheroIDs []string) (suggestions []ctrl.Superhero, esSuperheroIDs []string, err error) {
 	superheros, err := srv.GetESSuggestions(req, likeSuperheroIDs)
 	if err != nil {
 		return nil, nil, err
@@ -42,7 +43,7 @@ func (srv *Service) HandleESRequest(req ctrl.Request, likeSuperheroIDs []string)
 	suggestions = mapper.CutTotalResultToPageSize(srv.PageSize, result)
 
 	// Remove first 10 Superhero ids as these suggestions already being returned with the first batch.
-	esSuperheroIDs = mapper.CutFirstPageIdsFromESSuperheroIDs(srv.PageSize,  esSuperheroIDs)
+	esSuperheroIDs = mapper.CutFirstPageIdsFromESSuperheroIDs(srv.PageSize, esSuperheroIDs)
 
 	if suggestions == nil {
 		suggestions = make([]ctrl.Superhero, 0)
@@ -56,7 +57,7 @@ func (srv *Service) HandleESRequest(req ctrl.Request, likeSuperheroIDs []string)
 		keys := make([]string, 0)
 
 		for _, res := range suggestions {
-			keys = append(keys, fmt.Sprintf(srv.Cache.ChoiceKeyFormat, res.ID, req.ID))
+			keys = append(keys, fmt.Sprintf(srv.ChoiceKeyFormat, res.ID, req.ID))
 		}
 
 		choices, err := srv.GetCachedChoices(keys)

@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2019 - 2021 MWSOFT
+  Copyright (C) 2019 - 2022 MWSOFT
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
@@ -18,19 +18,30 @@ import (
 
 	"github.com/go-redis/redis"
 
+	"github.com/superhero-match/superhero-suggestions/internal/cache/model"
 	"github.com/superhero-match/superhero-suggestions/internal/config"
 )
 
-// Cache is the Redis client.
-type Cache struct {
+// Cache interface defines cache methods.
+type Cache interface {
+	DeleteLikes(superheroID string) error
+	FetchAuth(authD *model.AccessDetails) (string, error)
+	GetChoice(key string) (*model.Choice, error)
+	GetChoices(keys []string) (choices []model.Choice, err error)
+	GetLikes(superheroID string) ([]string, error)
+	GetSuggestions(keys []string) (suggestions []model.Superhero, err error)
+	SetSuggestions(suggestions []model.Superhero) error
+}
+
+// cache is the Redis client.
+type cache struct {
 	Redis               *redis.Client
-	SuggestionKeyFormat string
-	ChoiceKeyFormat     string
 	LikesKeyFormat      string
+	SuggestionKeyFormat string
 }
 
 // NewCache creates a client connection to Redis.
-func NewCache(cfg *config.Config) (cache *Cache, err error) {
+func NewCache(cfg *config.Config) (c Cache, err error) {
 	client := redis.NewClient(&redis.Options{
 		Addr:         fmt.Sprintf("%s%s", cfg.Cache.Address, cfg.Cache.Port),
 		Password:     cfg.Cache.Password,
@@ -45,10 +56,9 @@ func NewCache(cfg *config.Config) (cache *Cache, err error) {
 		return nil, err
 	}
 
-	return &Cache{
+	return &cache{
 		Redis:               client,
-		SuggestionKeyFormat: cfg.Cache.SuggestionKeyFormat,
-		ChoiceKeyFormat:     cfg.Cache.ChoiceKeyFormat,
 		LikesKeyFormat:      cfg.Cache.LikesKeyFormat,
+		SuggestionKeyFormat: cfg.Cache.SuggestionKeyFormat,
 	}, nil
 }

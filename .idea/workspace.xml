@@ -1,10 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="81a9836d-c4fb-4988-b45f-3395bd09ef6c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/api/controller/auth_middleware.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/controller/auth_middleware.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/api/controller/controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/controller/controller.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/api/controller/suggest.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/controller/suggest.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/api/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/api/model/profile_picture.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/model/profile_picture.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/api/model/request.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/model/request.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/api/model/superhero.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/model/superhero.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/api/service/api.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/service/api.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/api/service/cache.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/service/cache.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/api/service/es.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/service/es.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/api/service/jwt.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/service/jwt.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/api/service/mapper/api.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/service/mapper/api.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/api/service/mapper/cache.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/service/mapper/cache.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/api/service/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/service/service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/health/controller/controller.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/health/controller/health.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/health/controller/shutdown.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/health/main.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/cache/cache.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/cache/cache.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/cache/delete_likes.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/cache/delete_likes.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/cache/fetch_auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/cache/fetch_auth.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/cache/get_choice.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/cache/get_choice.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/cache/get_choices.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/cache/get_choices.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/cache/get_likes.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/cache/get_likes.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/cache/get_suggestions.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/cache/get_suggestions.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/cache/model/access_details.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/cache/model/access_details.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/cache/model/choice.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/cache/model/choice.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/cache/model/profile_picture.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/cache/model/profile_picture.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/cache/model/suggestion.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/cache/model/suggestion.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/cache/set_suggestions.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/cache/set_suggestions.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/config/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/config/app.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/config/cache.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/config/cache.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/config/config.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/config/es.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/config/es.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/config/health.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/config/jwt.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/config/jwt.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/es/es.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/es/es.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/es/get_suggestions.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/es/get_suggestions.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/es/model/profile_pictures.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/es/model/profile_pictures.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/es/model/request.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/es/model/request.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/es/model/superhero.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/es/model/superhero.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/health/client.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/health/shutdown.go" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,9 +65,19 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" path="/usr/local/go" />
+  <component name="GOROOT" url="file:///usr/local/go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GoLibraries">
+    <option name="urls">
+      <list>
+        <option value="file://$PROJECT_DIR$/../../../.." />
+      </list>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="1QYBwfm38pVGXKF5RCW5cCAz0xp" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -36,10 +93,16 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="configurable..is.expanded" value="false" />
+    <property name="configurable.GoLibrariesConfigurable.is.expanded" value="true" />
+    <property name="go.format.on.save.advertiser.fired" value="true" />
+    <property name="go.formatter.settings.were.checked" value="true" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
     <property name="go.import.settings.migrated" value="true" />
+    <property name="go.modules.go.list.on.any.changes.was.set" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
+    <property name="go.watchers.conflict.with.on.save.actions.check.performed" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -49,6 +112,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoLibrariesConfigurableProvider" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -62,27 +126,27 @@
       <module name="superhero-suggestions" />
       <working_directory value="$PROJECT_DIR$/" />
       <kind value="PACKAGE" />
-      <filePath value="$PROJECT_DIR$/cmd/api/main.go" />
       <package value="github.com/superhero-match/superhero-suggestions/cmd/api" />
       <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/cmd/api/main.go" />
       <method v="2" />
     </configuration>
     <configuration name="go build github.com/superhero-match/superhero-suggestions/cmd/health" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="superhero-suggestions" />
       <working_directory value="$PROJECT_DIR$/" />
       <kind value="PACKAGE" />
-      <filePath value="$PROJECT_DIR$/cmd/health/main.go" />
       <package value="github.com/superhero-match/superhero-suggestions/cmd/health" />
       <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/cmd/health/main.go" />
       <method v="2" />
     </configuration>
     <configuration name="go build github.com/superhero-suggestions/cmd/api" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="superhero-suggestions" />
       <working_directory value="$PROJECT_DIR$/" />
       <kind value="PACKAGE" />
-      <filePath value="$PROJECT_DIR$/cmd/api/main.go" />
       <package value="github.com/superhero-suggestions/cmd/api" />
       <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/cmd/api/main.go" />
       <method v="2" />
     </configuration>
     <configuration name="dkb" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
@@ -113,7 +177,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="masterDetails">
     <states>

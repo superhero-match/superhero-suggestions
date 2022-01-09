@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2019 - 2021 MWSOFT
+  Copyright (C) 2019 - 2022 MWSOFT
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
@@ -15,12 +15,13 @@ package cache
 
 import (
 	"fmt"
+
 	"github.com/go-redis/redis"
 )
 
 // GetLikes fetches all the users ids who liked this user. All of the users who liked this user
 // will be included in suggestions result.
-func (c *Cache) GetLikes(superheroID string) ([]string, error) {
+func (c *cache) GetLikes(superheroID string) ([]string, error) {
 	result, err := c.Redis.SMembers(fmt.Sprintf(c.LikesKeyFormat, superheroID)).Result()
 	if err != nil && err != redis.Nil {
 		return nil, err

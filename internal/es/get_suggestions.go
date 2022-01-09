@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2019 - 2021 MWSOFT
+  Copyright (C) 2019 - 2022 MWSOFT
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
@@ -17,9 +17,11 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/olivere/elastic/v7"
-	"github.com/superhero-match/superhero-suggestions/internal/es/model"
 	"strconv"
+
+	elastic "github.com/olivere/elastic/v7"
+
+	"github.com/superhero-match/superhero-suggestions/internal/es/model"
 )
 
 const (
@@ -29,7 +31,7 @@ const (
 )
 
 // GetSuggestions fetches suggestions for the Superhero.
-func (es *ES) GetSuggestions(req *model.Request, likeSuperheroIDs []string) (superheros []model.Superhero, err error) {
+func (es *es) GetSuggestions(req *model.Request, likeSuperheroIDs []string) (superheros []model.Superhero, err error) {
 	suggestionsQuery := elastic.NewBoolQuery()
 	suggestionsQuery = suggestionsQuery.Must(elastic.NewMatchAllQuery())
 
