@@ -1,0 +1,23 @@
+app:
+  port: ':4000'
+  time_format: '2006-01-02T15:04:05'
+  page_size: 10
+
+es:
+  host: 'localhost'
+  port: '9200'
+  cluster: superheromatch
+  index: superhero
+  batch_size: 50
+
+cache:
+  address: 'localhost'
+  port: ':6379'
+  password: 'Awesome85**'
+  db: 0
+  pool_size: 25
+  minimum_idle_connections: 10
+  maximum_retries: 1
+  suggestion_key_format: 'suggestion.%s'
+  choice_key_format: 'choice.%s.%s'
+  likes_key_format: 'likes.for.%s'

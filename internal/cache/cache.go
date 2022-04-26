@@ -11,21 +11,18 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+
 package cache
 
 import (
-	"fmt"
-
 	"github.com/go-redis/redis"
 
 	"github.com/superhero-match/superhero-suggestions/internal/cache/model"
-	"github.com/superhero-match/superhero-suggestions/internal/config"
 )
 
 // Cache interface defines cache methods.
 type Cache interface {
 	DeleteLikes(superheroID string) error
-	FetchAuth(authD *model.AccessDetails) (string, error)
 	GetChoice(key string) (*model.Choice, error)
 	GetChoices(keys []string) (choices []model.Choice, err error)
 	GetLikes(superheroID string) ([]string, error)
@@ -35,30 +32,16 @@ type Cache interface {
 
 // cache is the Redis client.
 type cache struct {
-	Redis               *redis.Client
+	Redis               redis.Cmdable
 	LikesKeyFormat      string
 	SuggestionKeyFormat string
 }
 
-// NewCache creates a client connection to Redis.
-func NewCache(cfg *config.Config) (c Cache, err error) {
-	client := redis.NewClient(&redis.Options{
-		Addr:         fmt.Sprintf("%s%s", cfg.Cache.Address, cfg.Cache.Port),
-		Password:     cfg.Cache.Password,
-		DB:           cfg.Cache.DB,
-		PoolSize:     cfg.Cache.PoolSize,
-		MinIdleConns: cfg.Cache.MinimumIdleConnections,
-		MaxRetries:   cfg.Cache.MaximumRetries,
-	})
-
-	_, err = client.Ping().Result()
-	if err != nil {
-		return nil, err
-	}
-
+// New creates a client connection to Redis.
+func New(rc redis.Cmdable, likesKeyFormat string, suggestionKeyFormat string) Cache {
 	return &cache{
-		Redis:               client,
-		LikesKeyFormat:      cfg.Cache.LikesKeyFormat,
-		SuggestionKeyFormat: cfg.Cache.SuggestionKeyFormat,
-	}, nil
+		Redis:               rc,
+		LikesKeyFormat:      likesKeyFormat,
+		SuggestionKeyFormat: suggestionKeyFormat,
+	}
 }

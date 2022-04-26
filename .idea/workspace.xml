@@ -4,32 +4,33 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81a9836d-c4fb-4988-b45f-3395bd09ef6c" name="Default Changelist" comment="">
+    <list default="true" id="db28847a-c402-4137-9d3e-068e1b2d0fb6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.dockerignore" beforeDir="false" afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/ACER.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/superhero-suggestions.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/superhero-suggestions.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/api/controller/auth_middleware.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/controller/auth_middleware.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/api/controller/auth_middleware.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/api/controller/controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/controller/controller.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/api/controller/suggest.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/controller/suggest.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/api/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/api/model/profile_picture.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/model/profile_picture.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/api/model/request.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/model/request.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/api/model/superhero.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/model/superhero.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/api/service/api.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/service/api.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/api/service/cache.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/service/cache.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/api/service/es.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/service/es.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/api/service/jwt.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/service/jwt.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/api/service/mapper/api.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/service/mapper/api.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/api/service/mapper/cache.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/service/mapper/cache.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/api/service/jwt.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/api/service/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/service/service.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/health/controller/controller.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/health/controller/health.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/health/controller/shutdown.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/health/main.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/cache/cache.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/cache/cache.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/cache/delete_likes.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/cache/delete_likes.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/cache/fetch_auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/cache/fetch_auth.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/cache/fetch_auth.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/cache/get_choice.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/cache/get_choice.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/cache/get_choices.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/cache/get_choices.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/cache/get_likes.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/cache/get_likes.go" afterDir="false" />
@@ -39,19 +40,13 @@
       <change beforePath="$PROJECT_DIR$/internal/cache/model/profile_picture.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/cache/model/profile_picture.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/cache/model/suggestion.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/cache/model/suggestion.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/cache/set_suggestions.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/cache/set_suggestions.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/config/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/config/app.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/config/cache.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/config/cache.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/config/config.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/config/es.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/config/es.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/config/health.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/config/jwt.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/config/jwt.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/config/jwt.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/es/es.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/es/es.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/es/get_suggestions.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/es/get_suggestions.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/es/model/profile_pictures.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/es/model/profile_pictures.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/es/model/request.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/es/model/request.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/es/model/superhero.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/es/model/superhero.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/health/client.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/health/shutdown.go" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,101 +64,109 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GoLibraries">
-    <option name="urls">
-      <list>
-        <option value="file://$PROJECT_DIR$/../../../.." />
-      </list>
-    </option>
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="1QYBwfm38pVGXKF5RCW5cCAz0xp" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectId" id="28IfbR0lMbI8chnAHxzIDDekDtr" />
+  <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="DefaultGoTemplateProperty" value="Go File" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="configurable..is.expanded" value="false" />
-    <property name="configurable.GoLibrariesConfigurable.is.expanded" value="true" />
-    <property name="go.format.on.save.advertiser.fired" value="true" />
-    <property name="go.formatter.settings.were.checked" value="true" />
-    <property name="go.gopath.indexing.explicitly.defined" value="true" />
-    <property name="go.import.settings.migrated" value="true" />
-    <property name="go.modules.go.list.on.any.changes.was.set" value="true" />
-    <property name="go.sdk.automatically.set" value="true" />
-    <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="go.watchers.conflict.with.on.save.actions.check.performed" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoLibrariesConfigurableProvider" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\ACER\go\src\github.com\superhero-suggestions\cmd\api" />
-      <recent name="C:\Users\ACER\go\src\github.com\superhero-suggestions\cmd\api\controller\service" />
-      <recent name="C:\Users\ACER\go\src\github.com\superhero-suggestions" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Go Build.go build github.com/superhero-match/superhero-suggestions/cmd/api">
-    <configuration name="go build github.com/superhero-match/superhero-suggestions/cmd/api" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultGoTemplateProperty": "Go File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "go.import.settings.migrated": "true",
+    "go.sdk.automatically.set": "true",
+    "last_opened_file_path": "/Users/nikolajuskarpovas/go/src/github.com/superhero-match/superhero-suggestions",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm"
+  }
+}]]></component>
+  <component name="RunManager" selected="Go Test.TestController_Health in github.com/superhero-match/superhero-suggestions/cmd/api/controller">
+    <configuration name="TestCache_SetSuggestions in github.com/superhero-match/superhero-suggestions/internal/cache" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="superhero-suggestions" />
-      <working_directory value="$PROJECT_DIR$/" />
+      <working_directory value="$PROJECT_DIR$/internal/cache" />
+      <root_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="github.com/superhero-match/superhero-suggestions/cmd/api" />
-      <directory value="$PROJECT_DIR$/" />
-      <filePath value="$PROJECT_DIR$/cmd/api/main.go" />
+      <package value="github.com/superhero-match/superhero-suggestions/internal/cache" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestCache_SetSuggestions\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="go build github.com/superhero-match/superhero-suggestions/cmd/health" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+    <configuration name="TestController_Health in github.com/superhero-match/superhero-suggestions/cmd/api/controller" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="superhero-suggestions" />
-      <working_directory value="$PROJECT_DIR$/" />
+      <working_directory value="$PROJECT_DIR$/cmd/api/controller" />
+      <root_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="github.com/superhero-match/superhero-suggestions/cmd/health" />
-      <directory value="$PROJECT_DIR$/" />
-      <filePath value="$PROJECT_DIR$/cmd/health/main.go" />
+      <package value="github.com/superhero-match/superhero-suggestions/cmd/api/controller" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestController_Health\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="go build github.com/superhero-suggestions/cmd/api" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+    <configuration name="TestController_Suggest in github.com/superhero-match/superhero-suggestions/cmd/api/controller" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="superhero-suggestions" />
-      <working_directory value="$PROJECT_DIR$/" />
+      <working_directory value="$PROJECT_DIR$/cmd/api/controller" />
+      <root_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="github.com/superhero-suggestions/cmd/api" />
-      <directory value="$PROJECT_DIR$/" />
-      <filePath value="$PROJECT_DIR$/cmd/api/main.go" />
+      <package value="github.com/superhero-match/superhero-suggestions/cmd/api/controller" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestController_Suggest\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="dkb" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
-      <makefile filename="$PROJECT_DIR$/Makefile" target="dkb" workingDirectory="" arguments="">
-        <envs />
-      </makefile>
+    <configuration name="TestController_SuggestGetCachedSuggestions in github.com/superhero-match/superhero-suggestions/cmd/api/controller" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="superhero-suggestions" />
+      <working_directory value="$PROJECT_DIR$/cmd/api/controller" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/superhero-match/superhero-suggestions/cmd/api/controller" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestController_SuggestGetCachedSuggestions\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestService_HandleESRequest in github.com/superhero-match/superhero-suggestions/cmd/api/service" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="superhero-suggestions" />
+      <working_directory value="$PROJECT_DIR$/cmd/api/service" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/superhero-match/superhero-suggestions/cmd/api/service" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestService_HandleESRequest\E$" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build github.com/superhero-match/superhero-suggestions/cmd/api" />
-        <item itemvalue="Go Build.go build github.com/superhero-match/superhero-suggestions/cmd/health" />
-        <item itemvalue="Go Build.go build github.com/superhero-suggestions/cmd/api" />
+        <item itemvalue="Go Test.TestController_Health in github.com/superhero-match/superhero-suggestions/cmd/api/controller" />
+        <item itemvalue="Go Test.TestController_SuggestGetCachedSuggestions in github.com/superhero-match/superhero-suggestions/cmd/api/controller" />
+        <item itemvalue="Go Test.TestController_Suggest in github.com/superhero-match/superhero-suggestions/cmd/api/controller" />
+        <item itemvalue="Go Test.TestService_HandleESRequest in github.com/superhero-match/superhero-suggestions/cmd/api/service" />
+        <item itemvalue="Go Test.TestCache_SetSuggestions in github.com/superhero-match/superhero-suggestions/internal/cache" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
@@ -178,19 +181,25 @@
       </map>
     </option>
   </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ScopeChooserConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
+  <component name="VgoProject">
+    <settings-migrated>true</settings-migrated>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/superhero_suggestions$TestService_GetCachedChoices_in_github_com_superhero_match_superhero_suggestions_cmd_api_service.out" NAME="TestService_GetCachedChoices in github.com/superhero-match/superhero-suggestions/cmd/api/service Coverage Results" MODIFIED="1650976341082" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/superhero_suggestions$TestService_GetCachedSuggestions_in_github_com_superhero_match_superhero_suggestions_cmd_api_service.out" NAME="TestService_GetCachedSuggestions in github.com/superhero-match/superhero-suggestions/cmd/api/service Coverage Results" MODIFIED="1650975480501" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/superhero_suggestions$TestCache_GetSuggestions_in_github_com_superhero_match_superhero_suggestions_internal_cache.out" NAME="TestCache_GetSuggestions in github.com/superhero-match/superhero-suggestions/internal/cache Coverage Results" MODIFIED="1650966573193" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/superhero_suggestions$TestCache_GetChoice_in_github_com_superhero_match_superhero_suggestions_internal_cache.out" NAME="TestCache_GetChoice in github.com/superhero-match/superhero-suggestions/internal/cache Coverage Results" MODIFIED="1650965444546" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/superhero_suggestions$TestNewConfig_in_github_com_superhero_match_superhero_suggestions_internal_config.out" NAME="TestNewConfig in github.com/superhero-match/superhero-suggestions/internal/config Coverage Results" MODIFIED="1650962616995" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/superhero_suggestions$TestCache_GetChoices_in_github_com_superhero_match_superhero_suggestions_internal_cache.out" NAME="TestCache_GetChoices in github.com/superhero-match/superhero-suggestions/internal/cache Coverage Results" MODIFIED="1650965739763" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/superhero_suggestions$TestCache_GetLikes_in_github_com_superhero_match_superhero_suggestions_internal_cache.out" NAME="TestCache_GetLikes in github.com/superhero-match/superhero-suggestions/internal/cache Coverage Results" MODIFIED="1650966153640" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/superhero_suggestions$TestController_SuggestGetCachedSuggestions_in_github_com_superhero_match_superhero_suggestions_cmd_api_controller.out" NAME="TestController_SuggestGetCachedSuggestions in github.com/superhero-match/superhero-suggestions/cmd/api/controller Coverage Results" MODIFIED="1650987921695" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/superhero_suggestions$TestController_Suggest_in_github_com_superhero_match_superhero_suggestions_cmd_api_controller.out" NAME="TestController_Suggest in github.com/superhero-match/superhero-suggestions/cmd/api/controller Coverage Results" MODIFIED="1650987677647" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/superhero_suggestions$TestEs_GetSuggestions_in_github_com_superhero_match_superhero_suggestions_internal_es.out" NAME="TestEs_GetSuggestions in github.com/superhero-match/superhero-suggestions/internal/es Coverage Results" MODIFIED="1650962854484" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/superhero_suggestions$TestService_HandleESRequest_in_github_com_superhero_match_superhero_suggestions_cmd_api_service.out" NAME="TestService_HandleESRequest in github.com/superhero-match/superhero-suggestions/cmd/api/service Coverage Results" MODIFIED="1650986673300" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/superhero_suggestions$TestService_GetESSuggestions_in_github_com_superhero_match_superhero_suggestions_cmd_api_service.out" NAME="TestService_GetESSuggestions in github.com/superhero-match/superhero-suggestions/cmd/api/service Coverage Results" MODIFIED="1650973728842" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/superhero_suggestions$TestService_CacheSuggestions_in_github_com_superhero_match_superhero_suggestions_cmd_api_service.out" NAME="TestService_CacheSuggestions in github.com/superhero-match/superhero-suggestions/cmd/api/service Coverage Results" MODIFIED="1650975982723" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/superhero_suggestions$TestCache_SetSuggestions_in_github_com_superhero_match_superhero_suggestions_internal_cache.out" NAME="TestCache_SetSuggestions in github.com/superhero-match/superhero-suggestions/internal/cache Coverage Results" MODIFIED="1650967196927" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/superhero_suggestions$TestService_DeleteLikes_in_github_com_superhero_match_superhero_suggestions_cmd_api_service.out" NAME="TestService_DeleteLikes in github.com/superhero-match/superhero-suggestions/cmd/api/service Coverage Results" MODIFIED="1650980214252" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/superhero_suggestions$TestController_Health_in_github_com_superhero_match_superhero_suggestions_cmd_api_controller.out" NAME="TestController_Health in github.com/superhero-match/superhero-suggestions/cmd/api/controller Coverage Results" MODIFIED="1650988136276" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

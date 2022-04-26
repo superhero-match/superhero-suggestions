@@ -11,17 +11,43 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-package cache
+
+package controller
 
 import (
-	"github.com/superhero-match/superhero-suggestions/internal/cache/model"
+	"net/http"
+	"net/http/httptest"
+	"testing"
+
+	"github.com/gin-gonic/gin"
+	"github.com/stretchr/testify/assert"
+	"go.uber.org/zap"
 )
 
-func (c *cache) FetchAuth(authD *model.AccessDetails) (string, error) {
-	userID, err := c.Redis.Get(authD.AccessUuid).Result()
+func MockGet(c *gin.Context) {
+	c.Request.Method = "GET"
+	c.Request.Header.Set("Content-Type", "application/json")
+}
+
+func TestController_Health(t *testing.T) {
+	logger, err := zap.NewProduction()
 	if err != nil {
-		return "", err
+		t.Fatal(err)
 	}
 
-	return userID, nil
+	defer logger.Sync()
+
+	mockController := New(nil, logger, "2006-01-02T15:04:05")
+
+	w := httptest.NewRecorder()
+	ctx, _ := gin.CreateTestContext(w)
+
+	ctx.Request = &http.Request{
+		Header: make(http.Header),
+	}
+
+	MockGet(ctx)
+
+	mockController.Health(ctx)
+	assert.EqualValues(t, http.StatusOK, w.Code)
 }

@@ -11,10 +11,10 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+
 package controller
 
 import (
-	"fmt"
 	"net/http"
 	"time"
 
@@ -91,12 +91,6 @@ func (ctl *Controller) Suggest(c *gin.Context) {
 		)
 
 		return
-	}
-
-	fmt.Println("GetCachedSuggestions")
-	for _, r := range result {
-		fmt.Printf("%+v", r)
-		fmt.Println()
 	}
 
 	c.JSON(http.StatusOK, gin.H{

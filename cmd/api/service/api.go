@@ -11,6 +11,7 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+
 package service
 
 import (
@@ -32,9 +33,6 @@ func (srv *service) HandleESRequest(req ctrl.Request, likeSuperheroIDs []string)
 	result, esSuperheroIDs := mapper.MapESSuggestionsToResult(superheros)
 
 	err = srv.CacheSuggestions(result)
-	fmt.Println("CacheSuggestions err: ")
-	fmt.Println(err)
-
 	if err != nil {
 		return nil, nil, err
 	}
@@ -61,9 +59,6 @@ func (srv *service) HandleESRequest(req ctrl.Request, likeSuperheroIDs []string)
 		}
 
 		choices, err := srv.GetCachedChoices(keys)
-		fmt.Println("GetCachedChoices err: ")
-		fmt.Println(err)
-
 		if err != nil {
 			return nil, nil, err
 		}

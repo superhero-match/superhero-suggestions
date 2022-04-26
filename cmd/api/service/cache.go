@@ -11,6 +11,7 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+
 package service
 
 import (
@@ -19,7 +20,6 @@ import (
 
 	"github.com/superhero-match/superhero-suggestions/cmd/api/model"
 	"github.com/superhero-match/superhero-suggestions/cmd/api/service/mapper"
-	cm "github.com/superhero-match/superhero-suggestions/internal/cache/model"
 )
 
 // GetCachedSuggestions fetches suggestions from cache and maps them into result.
@@ -109,8 +109,4 @@ func (srv *service) DeleteLikes(superheroID string) error {
 	// Delete the likes as they were already included in the Elasticsearch query.
 	// No need to be fetching the same users over and over again.
 	return srv.Cache.DeleteLikes(superheroID)
-}
-
-func (srv *service) FetchAuth(authD *cm.AccessDetails) (string, error) {
-	return srv.Cache.FetchAuth(authD)
 }

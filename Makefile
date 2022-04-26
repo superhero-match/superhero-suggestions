@@ -9,11 +9,15 @@ build:
 	CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -ldflags '-extldflags "-static"' -o bin/main cmd/api/main.go
 	chmod +x bin/main
 
+tests:
+	go test ./... -v -coverpkg=./... -coverprofile=profile.cov ./...
+	go tool cover -func profile.cov
+
 dkb:
 	docker build -t superhero-suggestions .
 
 dkr:
-	docker run -p "4000:4000" -p "4080:4080" superhero-suggestions
+	docker run -p "4000:4000" superhero-suggestions
 
 launch: dkb dkr
 
@@ -37,4 +41,4 @@ api-ssh:
 es-ssh:
 	docker exec -it es /bin/bash
 
-PHONY: prepare build dkb dkr launch api-log es-log api-ssh es-ssh rmc rmi clear
+PHONY: prepare build tests dkb dkr launch api-log es-log api-ssh es-ssh rmc rmi clear

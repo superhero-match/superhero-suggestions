@@ -11,6 +11,7 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+
 package controller
 
 import (
@@ -18,7 +19,6 @@ import (
 	"go.uber.org/zap"
 
 	"github.com/superhero-match/superhero-suggestions/cmd/api/service"
-	"github.com/superhero-match/superhero-suggestions/internal/config"
 )
 
 // Controller holds the Controller data.
@@ -28,25 +28,13 @@ type Controller struct {
 	TimeFormat string
 }
 
-// NewController returns new controller.
-func NewController(cfg *config.Config) (*Controller, error) {
-	srv, err := service.NewService(cfg)
-	if err != nil {
-		return nil, err
-	}
-
-	logger, err := zap.NewProduction()
-	if err != nil {
-		return nil, err
-	}
-
-	defer logger.Sync()
-
+// New returns new controller.
+func New(s service.Service, logger *zap.Logger, timeFormat string) *Controller {
 	return &Controller{
-		Service:    srv,
+		Service:    s,
 		Logger:     logger,
-		TimeFormat: cfg.App.TimeFormat,
-	}, nil
+		TimeFormat: timeFormat,
+	}
 }
 
 // RegisterRoutes registers all the superhero_suggestions API routes.

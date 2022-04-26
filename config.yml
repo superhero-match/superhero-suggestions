@@ -4,14 +4,14 @@ app:
   page_size: 10
 
 es:
-  host: '192.168.1.229'
+  host: 'localhost'
   port: '9200'
   cluster: superheromatch
   index: superhero
   batch_size: 50
 
 cache:
-  address: '192.168.1.229'
+  address: 'localhost'
   port: ':6379'
   password: 'Awesome85**'
   db: 0
@@ -21,6 +21,3 @@ cache:
   suggestion_key_format: 'suggestion.%s'
   choice_key_format: 'choice.%s.%s'
   likes_key_format: 'likes.for.%s'
-
-jwt:
-  access_token_secret: 'access_token_secret'

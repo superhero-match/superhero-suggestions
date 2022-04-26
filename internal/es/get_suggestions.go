@@ -11,12 +11,12 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+
 package es
 
 import (
 	"context"
 	"encoding/json"
-	"fmt"
 	"strconv"
 
 	elastic "github.com/olivere/elastic/v7"
@@ -98,20 +98,6 @@ func (es *es) GetSuggestions(req *model.Request, likeSuperheroIDs []string) (sup
 		)
 	suggestionsQuery.Must(ageRangeQuery)
 
-	src, err := suggestionsQuery.Source()
-	if err != nil {
-		return nil, err
-	}
-
-	data, err := json.Marshal(src)
-	if err != nil {
-		return nil, err
-	}
-
-	got := string(data)
-
-	fmt.Println(got)
-
 	searchResult, err := es.Client.Search().
 		Index(es.Index).
 		Query(suggestionsQuery).
@@ -119,18 +105,8 @@ func (es *es) GetSuggestions(req *model.Request, likeSuperheroIDs []string) (sup
 		Size(es.BatchSize).
 		Do(context.Background())
 	if err != nil {
-		fmt.Println(err)
 		return nil, err
 	}
-
-	fmt.Println()
-
-	fmt.Printf("%+v", searchResult)
-
-	fmt.Println()
-
-	fmt.Println("searchResult.TotalHits()")
-	fmt.Println(searchResult.TotalHits())
 
 	for _, hit := range searchResult.Hits.Hits {
 		var s model.Superhero
@@ -139,8 +115,6 @@ func (es *es) GetSuggestions(req *model.Request, likeSuperheroIDs []string) (sup
 		if err != nil {
 			return nil, err
 		}
-
-		fmt.Printf("%+v", s)
 
 		superheros = append(superheros, s)
 	}
